@@ -104,6 +104,7 @@ public class RootViewModel : Conductor<Screen>.Collection.OneActive
     {
         Items.Add(Instances.TaskQueueViewModel);
         Items.Add(Instances.CopilotViewModel);
+        Items.Add(Instances.SimulatorViewModel);
         Items.Add(Instances.ToolboxViewModel);
         Items.Add(Instances.SettingsViewModel);
 

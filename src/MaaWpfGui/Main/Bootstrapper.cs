@@ -831,6 +831,7 @@ public class Bootstrapper : Bootstrapper<RootViewModel>
         builder.Bind<TaskQueueViewModel>().ToSelf().InSingletonScope();
         builder.Bind<CopilotViewModel>().ToSelf().InSingletonScope();
         builder.Bind<ToolboxViewModel>().ToSelf().InSingletonScope();
+        builder.Bind<SimulatorViewModel>().ToSelf().InSingletonScope();
         builder.Bind<SettingsViewModel>().ToSelf().InSingletonScope();
 
         builder.Bind<AsstProxy>().ToSelf().InSingletonScope();
