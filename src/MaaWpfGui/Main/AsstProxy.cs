@@ -2525,7 +2525,7 @@ public class AsstProxy
             var result = Application.Current.Dispatcher.Invoke(() =>
                 MessageBoxHelper.Show(
                     LocalizationHelper.GetString("AttachWindowNeedAdmin"),
-                    "MAA",
+                    "MAA-Simu",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question));
 

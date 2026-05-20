@@ -34,7 +34,7 @@ internal class NotificationImplLibNotify : INotificationPoster
     {
         try
         {
-            if (MaaDesktopIntegration.notify_init("MAA") == 0)
+            if (MaaDesktopIntegration.notify_init("MAA-Simu") == 0)
             {
                 return false;
             }

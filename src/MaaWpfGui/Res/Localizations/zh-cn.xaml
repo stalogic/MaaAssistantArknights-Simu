@@ -46,8 +46,8 @@
     <system:String x:Key="ExternalNotificationSendSuccess">发送成功</system:String>
     <system:String x:Key="ExternalNotificationSendFail">发送失败</system:String>
     <system:String x:Key="ExternalNotificationSendTest">发送测试</system:String>
-    <system:String x:Key="ExternalNotificationSendTestTitle">MAA 外部通知测试</system:String>
-    <system:String x:Key="ExternalNotificationSendTestContent">这是 MAA 外部通知测试信息。如果你看到了这段内容，就说明通知发送成功了！</system:String>
+    <system:String x:Key="ExternalNotificationSendTestTitle">MAA-Simu 外部通知测试</system:String>
+    <system:String x:Key="ExternalNotificationSendTestContent">这是 MAA-Simu 外部通知测试信息。如果你看到了这段内容，就说明通知发送成功了！</system:String>
     <system:String x:Key="ExternalNotificationServerChanSendKey">Server Chan 发送密钥</system:String>
     <system:String x:Key="ExternalNotificationBarkSendKey">Bark 发送密钥</system:String>
     <system:String x:Key="ExternalNotificationBarkServer">Bark 服务器</system:String>
@@ -112,7 +112,7 @@
     <system:String x:Key="GuideGitHubIssueDescription">MAA Team 仅受理用户通过 GitHub 平台依照 Issue 模板规范提交的反馈，并保留对所有反馈的处理决定权。</system:String>
     <system:String x:Key="GuideOpenSourceTitle">💡 参与开源</system:String>
     <system:String x:Key="GuideOpenSourceDescription">作为开源项目，用户可依据 AGPL-3.0 许可证在 GitHub 平台参与 MAA 的开发。MAA Team 鼓励用户通过更有价值的代码贡献代替问题反馈。</system:String>
-    <system:String x:Key="GuideUserAgreement">使用 MAA 即表示您同意遵守「用户协议」，完整协议内容可在官网底部的链接中查看。</system:String>
+    <system:String x:Key="GuideUserAgreement">使用 MAA-Simu 即表示您同意遵守「用户协议」，完整协议内容可在官网底部的链接中查看。</system:String>
     <system:String x:Key="RestartGuide">重看设置指引</system:String>
     <system:String x:Key="RestartGuidePrompt">设置指引将在主界面显示，是否立即重启应用？</system:String>
     <!--  !设置指引  -->
@@ -298,7 +298,7 @@
     <system:String x:Key="EmulatorStartFailed">未能成功启动模拟器\n请使用管理员权限打开本软件\n或手动启动模拟器。</system:String>
     <system:String x:Key="SwitchLanguage">切换语言 🌐</system:String>
     <system:String x:Key="Language">语言</system:String>
-    <system:String x:Key="LanguageChangedTip">语言设置已更改，是否现在重启 MAA 以应用语言设置？</system:String>
+    <system:String x:Key="LanguageChangedTip">语言设置已更改，是否现在重启 MAA-Simu 以应用语言设置？</system:String>
     <system:String x:Key="ManualRestart">稍后</system:String>
     <system:String x:Key="Tip">提示</system:String>
     <system:String x:Key="Warning">警告</system:String>
@@ -315,7 +315,7 @@
     <system:String x:Key="ConfirmDeleteTaskMessage">确定要删除 {0} 任务 "{1}" 吗？</system:String>
     <system:String x:Key="TaskRenamed">任务已重命名为: {0}</system:String>
     <system:String x:Key="TaskDeleted">已删除任务: {0}</system:String>
-    <system:String x:Key="HotKeyShowGui">[热键] 显示/收起 MAA</system:String>
+    <system:String x:Key="HotKeyShowGui">[热键] 显示/收起 MAA-Simu</system:String>
     <system:String x:Key="HotKeyLinkStart">[热键] Link start/stop</system:String>
     <system:String x:Key="HotKeyChangingTip">键入 退格/Esc/Delete 清除当前热键</system:String>
     <system:String x:Key="LabelSequenceTip">标签顺序可拖动</system:String>
@@ -332,7 +332,7 @@
     <system:String x:Key="UpdateCheckStable">正式版</system:String>
     <system:String x:Key="UpdateCheckBeta">公测版</system:String>
     <system:String x:Key="UpdateCheckNightly">内测版</system:String>
-    <system:String x:Key="NightlyWarning" xml:space="preserve">您已启用内测版更新。感谢您对 MAA 的支持与测试。
+    <system:String x:Key="NightlyWarning" xml:space="preserve">您已启用内测版更新。感谢您对 MAA-Simu 的支持与测试。
 
 请注意：
 
@@ -407,29 +407,29 @@
     <system:String x:Key="NewVersionDownloadFailedTitle">新版本下载失败</system:String>
     <system:String x:Key="NewVersionDownloadFailedDesc">请尝试手动下载后，将压缩包放到目录下_(:з」∠)_</system:String>
     <system:String x:Key="NewVersionDownloadCompletedTitle">新版本下载完成</system:String>
-    <system:String x:Key="NewVersionDownloadCompletedDesc">是否立即更新 MAA？（重启进程）</system:String>
+    <system:String x:Key="NewVersionDownloadCompletedDesc">是否立即更新 MAA-Simu？（重启进程）</system:String>
     <system:String x:Key="PendingFullUpdateManualConfirmTitle">完整包更新需要手动确认</system:String>
     <system:String x:Key="PendingFullUpdateManualConfirmDesc" xml:space="preserve">检测到需要使用完整包进行更新。
 
 更新逻辑：如果你继续下载或导入完整包，后续安装时会先清理当前安装根目录下除 cache、config、data、debug、achievement（通关截图）、background（背景图）和 MAA.Updater.exe 外的顶层文件和文件夹，再把完整包内容写入该目录。
 
-风险说明：如果你把 MAA 直接放在磁盘根目录、桌面、下载目录，或与其他程序、个人文件放在同一个目录层级，这些同级内容也可能被一起删除或移走。
+风险说明：如果你把 MAA-Simu 直接放在磁盘根目录、桌面、下载目录，或与其他程序、个人文件放在同一个目录层级，这些同级内容也可能被一起删除或移走。
 
-正确目录结构示例：请把 MAA 放在独立文件夹内，例如：
+正确目录结构示例：请把 MAA-Simu 放在独立文件夹内，例如：
 D:\
-`-- MAA\
+`-- MAA-Simu\
     |-- MAA.exe
     |-- config\
     `-- data\
 
-请先手动备份整个安装目录，尤其是与 MAA 无关但和它放在同一层级的文件。
+请先手动备份整个安装目录，尤其是与 MAA-Simu 无关但和它放在同一层级的文件。
 当前安装目录：{0}
 
 只有在你已确认目录结构正确并完成手动备份后，才继续下载或导入完整包。</system:String>
     <system:String x:Key="PendingFullUpdateManualConfirmYes">我已手动确认并备份，继续更新</system:String>
     <system:String x:Key="PendingFullUpdateManualConfirmNo">暂不更新，继续启动当前版本</system:String>
     <system:String x:Key="LocalUpdatePackageImportedTitle">本地更新包已就绪</system:String>
-    <system:String x:Key="LocalUpdatePackageImportedDesc">检测到可用的本地更新包，是否立即更新 MAA？（重启进程）</system:String>
+    <system:String x:Key="LocalUpdatePackageImportedDesc">检测到可用的本地更新包，是否立即更新 MAA-Simu？（重启进程）</system:String>
     <system:String x:Key="LocalUpdatePackageUnsupported">无法识别压缩包：{0}\n仅支持拖入当前架构的完整包，或当前版本到更高版本的 OTA 更新包。\n当前版本：{1}\n当前架构：{2}\n支持的包名示例：MAA-v新版本-win-{2}.zip\n或 MAAComponent-OTA-{1}_v新版本-win-{2}.zip</system:String>
     <system:String x:Key="NewVersionFoundButNoPackageTitle">检测到新版本，但未找到增量包</system:String>
     <system:String x:Key="NewVersionFoundButNoPackageDesc">请手动下载完整包更新！</system:String>
@@ -446,24 +446,24 @@ D:\
     <system:String x:Key="AddConfiguration">添加</system:String>
     <system:String x:Key="AddConfigSuccess">配置 &lt;{0}&gt; 添加成功</system:String>
     <system:String x:Key="ConfigExists">配置 &lt;{0}&gt; 已存在</system:String>
-    <system:String x:Key="LaunchOnSystemStartup">开机自动启动 MAA</system:String>
+    <system:String x:Key="LaunchOnSystemStartup">开机自动启动 MAA-Simu</system:String>
     <system:String x:Key="LaunchOnSystemStartupWarning" xml:space="preserve">
 该功能通过修改注册表实现开机自启动。
-由于 MAA 是非安装型软件，不会自动清理注册表项。
+由于 MAA-Simu 是非安装型软件，不会自动清理注册表项。
 如介意注册表残留，请在删除程序前取消启用此选项。
 </system:String>
     <system:String x:Key="LaunchOnSystemStartupAdminPrompt">
-        管理员权限启动不支持开机自启。不建议长期以管理员权限运行 MAA。\n如确有需要，请前往 控制面板 > Windows 工具 > 任务计划程序 创建自定义任务。设置触发器时，请确保勾选 ｢使用最高权限运行｣。
+        管理员权限启动不支持开机自启。不建议长期以管理员权限运行 MAA-Simu。\n如确有需要，请前往 控制面板 > Windows 工具 > 任务计划程序 创建自定义任务。设置触发器时，请确保勾选 ｢使用最高权限运行｣。
     </system:String>
-    <system:String x:Key="RunTaskAfterLaunch">启动 MAA 后直接运行</system:String>
-    <system:String x:Key="MinimizeAfterLaunch">启动 MAA 后直接最小化</system:String>
+    <system:String x:Key="RunTaskAfterLaunch">启动 MAA-Simu 后直接运行</system:String>
+    <system:String x:Key="MinimizeAfterLaunch">启动 MAA-Simu 后直接最小化</system:String>
     <system:String x:Key="ClientType">客户端类型</system:String>
     <system:String x:Key="StartGameLaunchClient">是否启动客户端</system:String>
     <system:String x:Key="AutoRestartOption">游戏掉线时自动重连</system:String>
     <system:String x:Key="UseWeeklySchedule">启用周计划</system:String>
     <system:String x:Key="UseWeeklyScheduleTip">此处星期根据游戏时间计算，并非现实时间。例如游戏在 4:00 刷新，则 3:59 仍算作前一天。</system:String>
     <system:String x:Key="HelpUsWithOverseasServersTip">外服适配滞销，帮帮我们！不会编程也可以。</system:String>
-    <system:String x:Key="OpenEmulatorAfterLaunch">启动 MAA 后自动开启模拟器</system:String>
+    <system:String x:Key="OpenEmulatorAfterLaunch">启动 MAA-Simu 后自动开启模拟器</system:String>
     <system:String x:Key="WaitForEmulator">等待模拟器启动时间（秒）</system:String>
     <system:String x:Key="WaitForEmulatorFinish">等待结束</system:String>
     <system:String x:Key="EmulatorPath">模拟器路径</system:String>
@@ -595,8 +595,8 @@ D:\
     <system:String x:Key="MinimizeToTray">最小化时隐藏至托盘</system:String>
     <system:String x:Key="SystemNotification">重要信息弹出系统通知</system:String>
     <system:String x:Key="SystemNotificationInfo" xml:space="preserve">
-MAA 是非安装型软件，通知功能使用 Microsoft.Toolkit.Uwp.Notifications 库，该库默认以程序所在路径作为注册标识。
-如果从多个路径启动过 MAA，Windows 会为每个路径生成不同的通知来源图标（如任务栏弹窗图标），这是该库的默认行为，MAA 无法控制或自动清除。
+MAA-Simu 是非安装型软件，通知功能使用 Microsoft.Toolkit.Uwp.Notifications 库，该库默认以程序所在路径作为注册标识。
+如果从多个路径启动过 MAA-Simu，Windows 会为每个路径生成不同的通知来源图标（如任务栏弹窗图标），这是该库的默认行为，MAA-Simu 无法控制或自动清除。
 如需清理，请手动打开注册表编辑器，定位至：
 HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings
 删除对应的路径项即可。
@@ -660,7 +660,7 @@ shell/sdk/external_renderer_ipc/external_renderer_ipc.dll\n
     <system:String x:Key="MuMu12ExtrasEnabledTip" xml:space="preserve">
 需使用官版或方舟专版 MuMu V4.0.0 或更新版本，国际版需 V5.21.3 或更新版本。
 强烈建议在开启本功能后立刻运行一次截图测试。
-MAA 会自动通过注册表获取安装路径，若获取失败则请手动填写。\n
+MAA-Simu 会自动通过注册表获取安装路径，若获取失败则请手动填写。\n
 安装路径应填写模拟器安装目录的根目录，例如模拟器进程文件路径为
 C:\\Program Files\\Netease\\MuMuPlayer-12.0\\shell\\MuMuPlayer.exe 或
 C:\\Program Files\\Netease\\MuMuPlayer-12.0\\nx_device\\12.0\\shell\\MuMuNxDevice.exe
@@ -682,7 +682,7 @@ C:\\Program Files\\Netease\\MuMuPlayer-12.0。\n
     <system:String x:Key="LdExtrasEnabledTip" xml:space="preserve">
 需使用官版或国际版雷电模拟器 9 V9.1.32 或更新版本。
 强烈建议在开启本功能后立刻运行一次截图测试。
-MAA 会自动通过注册表获取安装路径，若获取失败则请手动填写。\n
+MAA-Simu 会自动通过注册表获取安装路径，若获取失败则请手动填写。\n
 安装路径应填写模拟器安装目录的根目录，例如模拟器进程文件路径为
 C:\\leidian\\LDPlayer9\\dnplayer.exe
 则应填写
@@ -750,17 +750,17 @@ C:\\leidian\\LDPlayer9。\n
     <system:String x:Key="PostActions">完成后</system:String>
     <system:String x:Key="DoNothing">无动作</system:String>
     <system:String x:Key="ExitArknights">退出 明日方舟</system:String>
-    <system:String x:Key="ExitSelf">退出 MAA</system:String>
+    <system:String x:Key="ExitSelf">退出 MAA-Simu</system:String>
     <system:String x:Key="ExitEmulator">退出 模拟器</system:String>
     <system:String x:Key="Hibernate">休眠</system:String>
     <system:String x:Key="HibernateTip">需在 Windows 电源选项中启用休眠功能，否则该功能无效。</system:String>
     <system:String x:Key="Sleep">睡眠</system:String>
     <system:String x:Key="Shutdown">关机</system:String>
     <system:String x:Key="Once">仅当次*</system:String>
-    <system:String x:Key="PostActionOnceTip" xml:space="preserve">勾选后将不保存选项变化，下次 MAA 启动或 {key=LinkStart} 后复原
+    <system:String x:Key="PostActionOnceTip" xml:space="preserve">勾选后将不保存选项变化，下次 MAA-Simu 启动或 {key=LinkStart} 后复原
 取消勾选本选项后，其他选项状态将会正常保存
 右键点击其他选项时，会同步勾选/取消勾选本选项</system:String>
-    <system:String x:Key="IfNoOtherMaa">无其他 MAA 时</system:String>
+    <system:String x:Key="IfNoOtherMaa">无其他 MAA-Simu 时</system:String>
     <system:String x:Key="BackToAndroidHome">返回 模拟器 主屏幕</system:String>
     <system:String x:Key="LinkStart">Link Start!</system:String>
     <system:String x:Key="Stop">停止</system:String>
@@ -970,7 +970,7 @@ C:\\leidian\\LDPlayer9。\n
     <system:String x:Key="MiniGame@RM-TR-1">次生预案 RM-TR-1</system:String>
     <system:String x:Key="MiniGame@RM-TR-1Tip" xml:space="preserve">过完新手教程后进入前哨支点，滑动到界面最左侧。</system:String>
     <system:String x:Key="MiniGame@RM-1">次生预案 RM-1</system:String>
-    <system:String x:Key="MiniGame@RM-1Tip" xml:space="preserve">刷 RM-TR-1 大约 3 小时，营建策略中，石材开采 线点到底，&#10;特约任命指定维什戴尔，然后尽量精二专三，携带 1 技能，&#10;带满 12 个干员，其余 11 个的费用需要低于维什戴尔，&#10;生产模块各带 1 个，手动进入关卡并退出，&#10;让 RM-1 位于屏幕中央，运行 MAA。</system:String>
+    <system:String x:Key="MiniGame@RM-1Tip" xml:space="preserve">刷 RM-TR-1 大约 3 小时，营建策略中，石材开采 线点到底，&#10;特约任命指定维什戴尔，然后尽量精二专三，携带 1 技能，&#10;带满 12 个干员，其余 11 个的费用需要低于维什戴尔，&#10;生产模块各带 1 个，手动进入关卡并退出，&#10;让 RM-1 位于屏幕中央，运行 MAA-Simu。</system:String>
     <system:String x:Key="MiniGame@AT@ConversationRoom">AT-相谈室</system:String>
     <system:String x:Key="MiniGame@AT@ConversationRoomTip" xml:space="preserve">在活动主界面（右下角有 ｢开始营业｣ 处）开始任务。</system:String>
     <system:String x:Key="MiniGame@ALL@GreenGrass">争锋频道：青草城</system:String>
@@ -1121,13 +1121,13 @@ C:\\leidian\\LDPlayer9。\n
     <!--  ErrorDialogView  -->
     <system:String x:Key="Error">错误</system:String>
     <system:String x:Key="ErrorCongratulations">喜报</system:String>
-    <system:String x:Key="ErrorProlog">MAA 遇到了问题</system:String>
+    <system:String x:Key="ErrorProlog">MAA-Simu 遇到了问题</system:String>
     <system:String x:Key="ErrorDetails">详细信息</system:String>
     <system:String x:Key="ErrorSolution">解决方案</system:String>
     <system:String x:Key="ErrorSolutionMoveMaaExeOutOfFolder">请勿直接移动 MAA.exe 文件。若需更改软件位置，请移动整个文件夹；或右键 MAA.exe 创建快捷方式，然后将快捷方式移动到其他位置。</system:String>
     <system:String x:Key="ErrorSolutionCrash">请参考文档: 常见问题 - 闪退 进行操作。</system:String>
     <system:String x:Key="ErrorSolutionUpdatePackageExtractionFailed">解压更新包失败。建议先尝试重新启动 MAA.exe，如仍无法解决，请重启电脑后再试。请勿手动解压更新包，以免遗漏必要的文件删除操作。</system:String>
-    <system:String x:Key="ErrorSolutionReplaceAdb">请 ｢关闭模拟器与 ADB｣ 或 ｢重启电脑后在未开启模拟器的情况下使用管理员权限打开 MAA｣ 后进行操作。</system:String>
+    <system:String x:Key="ErrorSolutionReplaceAdb">请 ｢关闭模拟器与 ADB｣ 或 ｢重启电脑后在未开启模拟器的情况下使用管理员权限打开 MAA-Simu｣ 后进行操作。</system:String>
     <system:String x:Key="ErrorSolutionFailedToMove">文件被占用，请重启电脑后重试。</system:String>
     <system:String x:Key="ErrorSolutionSelectDefaultBrowser">打开链接失败，请前往 ｢Windows 设置｣ 选择默认浏览器。</system:String>
     <system:String x:Key="ErrorFeedbackLinkText">创建 GitHub issue</system:String>
@@ -1151,7 +1151,7 @@ C:\\leidian\\LDPlayer9。\n
     <system:String x:Key="AdbDownloadFailedDesc">请手动进行操作（将 adb.exe 重命名后替换上方模拟器自带 ADB 即可）</system:String>
     <system:String x:Key="SuccessfullyReplacedAdb">成功替换 ADB 文件</system:String>
     <system:String x:Key="FailedToReplaceAdbAndUseLocal">替换 ADB 失败</system:String>
-    <system:String x:Key="FailedToReplaceAdbAndUseLocalDesc">已使用本地 ADB 进行连接。如需再次尝试，请重新检测连接后 ｢关闭模拟器与 ADB｣ 或 ｢重启电脑后在未开启模拟器的情况下使用管理员权限打开 MAA｣ 后进行操作。</system:String>
+    <system:String x:Key="FailedToReplaceAdbAndUseLocalDesc">已使用本地 ADB 进行连接。如需再次尝试，请重新检测连接后 ｢关闭模拟器与 ADB｣ 或 ｢重启电脑后在未开启模拟器的情况下使用管理员权限打开 MAA-Simu｣ 后进行操作。</system:String>
     <system:String x:Key="InitializationError">初始化错误！</system:String>
     <system:String x:Key="ResolutionNotSupported">模拟器分辨率不支持，请设置为 720p 或更高，且为 16:9 比例，推荐使用 1280x720 或 1920x1080</system:String>
     <system:String x:Key="ResolutionNotSupportedCurrentResolution">当前分辨率：{0}x{1}</system:String>
@@ -1173,7 +1173,7 @@ C:\\leidian\\LDPlayer9。\n
     <system:String x:Key="CompleteCombat">完成战斗</system:String>
     <system:String x:Key="AllTasksComplete">任务已全部完成！\n(用时 {0})</system:String>
     <system:String x:Key="SanityReport">理智将在 {DateTime} 回满。({TimeDiff} 后)</system:String>
-    <system:String x:Key="AllTaskCompleteContent">MAA 已在 {DateTime} 完成了 {Preset} 配置下所有预设的任务。(用时 {TimeDiff})</system:String>
+    <system:String x:Key="AllTaskCompleteContent">MAA-Simu 已在 {DateTime} 完成了 {Preset} 配置下所有预设的任务。(用时 {TimeDiff})</system:String>
     <system:String x:Key="BackgroundLinkStarted">开始执行任务</system:String>
     <system:String x:Key="BackgroundLinkStopped">任务终止</system:String>
     <system:String x:Key="FailedToOpenClient">打开客户端失败，请检查配置文件</system:String>
@@ -1319,9 +1319,9 @@ C:\\leidian\\LDPlayer9。\n
     <system:String x:Key="AttachWindowMultipleFound">找到 {0} 个 "{1}" 窗口，将使用第一个</system:String>
     <system:String x:Key="AttachWindowFound">找到窗口 "{0}"</system:String>
     <system:String x:Key="Administrator">管理员</system:String>
-    <system:String x:Key="AttachWindowNeedAdmin">PC 端连接需要管理员权限。\n是否以管理员身份重启 MAA？</system:String>
+    <system:String x:Key="AttachWindowNeedAdmin">PC 端连接需要管理员权限。\n是否以管理员身份重启 MAA-Simu？</system:String>
     <system:String x:Key="RestartingAsAdmin">正在以管理员身份重启…</system:String>
-    <system:String x:Key="RestartAsAdminFailed">请手动以管理员身份运行 MAA</system:String>
+    <system:String x:Key="RestartAsAdminFailed">请手动以管理员身份运行 MAA-Simu</system:String>
     <system:String x:Key="AttachWindowFailed">AttachWindow 绑定窗口失败，请检查截图/输入方式配置</system:String>
     <system:String x:Key="UseAttachWindowTip">使用 Win32 窗口绑定明日方舟 PC 端，而非 ADB 连接模拟器或手机</system:String>
     <system:String x:Key="UseAttachWindowWarning" xml:space="preserve">连接 PC 端（实验性）
@@ -1330,7 +1330,7 @@ C:\\leidian\\LDPlayer9。\n
 我们也始终欢迎有能力的开发者参与贡献提交 Pull Request，共同完善 PC 端支持。
 
 使用前请确认：
-1. 需要以管理员身份启动 MAA
+1. 需要以管理员身份启动 MAA-Simu
 2. 部分截图方式下，游戏窗口不能最小化
 3. 明日方舟设置 → 游戏 → UI 缩放需设为 100%
 4. 游戏分辨率需为 16:9，推荐设置 720×1280 或 1080×1920</system:String>
@@ -1402,19 +1402,19 @@ DEBUG 目录下保存的图片有数量限制，超出后会自动清理旧图�
     <system:String x:Key="DrunkAndStaggering">呀，博士。你今天走起路来，怎么看着摇摇晃晃的？</system:String>
     <system:String x:Key="Hangover">下次不能喝、喝这么多了……</system:String>
     <system:String x:Key="HelloWorld">Hello World!</system:String>
-    <system:String x:Key="EasterEggsRules" xml:space="preserve">1. MAA 正式版不会出现 Debug 模式。如果你在运行时看到 Debug 选项，请立即关闭软件，不要点击它，并联系最近的 MAA 开发者。\n
+    <system:String x:Key="EasterEggsRules" xml:space="preserve">1. MAA-Simu 正式版不会出现 Debug 模式。如果你在运行时看到 Debug 选项，请立即关闭软件，不要点击它，并联系最近的 MAA-Simu 开发者。\n
 2. 基建换班是自动的。如果你发现某个{key=Operator}连续工作了 72 小时以上，请手动调整班次，并检查系统时间是否正常。\n
-3. 公开招募的标签不会改变。如果发现标签在倒计时结束前自行更换，不要继续招募，重启 MAA 后再操作。\n
+3. 公开招募的标签不会改变。如果发现标签在倒计时结束前自行更换，不要继续招募，重启 MAA-Simu 后再操作。\n
 4. MAA 不会主动发送好友申请。如果收到来自 ｢MAA_System｣ 的好友请求，不要接受，并删除该账号。\n
 5. 肉鸽辅助仅提供建议。若游戏自动选择了 不存在的选项，强制退出并重新启动客户端。\n
-6. MAA 的日志文件不应包含乱码。如果发现日志中出现 ｢ERROR: 数据解析失败｣ 以外的异常信息，删除日志并重新安装软件。\n
-7. 夜间模式是安全的。但如果 MAA 在 凌晨 3:33 自动启动并运行 ｢未知任务｣，请拔掉电源，等待日出后再使用。\n
-8. 最后一条规则不存在。如果你看到了这条，请忘记它，并正常使用 MAA。\n
-9. 请不要在 MAA 里点炒...锟斤拷拷拷拷喜报拷拷拷饭。\n
+6. MAA-Simu 的日志文件不应包含乱码。如果发现日志中出现 ｢ERROR: 数据解析失败｣ 以外的异常信息，删除日志并重新安装软件。\n
+7. 夜间模式是安全的。但如果 MAA-Simu 在 凌晨 3:33 自动启动并运行 ｢未知任务｣，请拔掉电源，等待日出后再使用。\n
+8. 最后一条规则不存在。如果你看到了这条，请忘记它，并正常使用 MAA-Simu。\n
+9. 请不要在 MAA-Simu 里点炒...锟斤拷拷拷拷喜报拷拷拷饭。\n
 10. Mirror酱是善良的，你只要付出小小的代价，就能得到祂的庇护。\n
-11. MAA 不支持未来版本。如果软件自动更新到一个 尚未发布的版本号（如 v10.0.0），不要运行，等待官方公告。\n
-12. MAA 的没有语音提示。如果听到 低语声、笑声或非程序生成的语音，关闭扬声器，并检查是否有未知脚本在运行。\n
-13. MAA 不会在周日凌晨更新。如果收到更新提示，请忽略，不要查看更新公告，直到周一。
+11. MAA-Simu 不支持未来版本。如果软件自动更新到一个 尚未发布的版本号（如 v10.0.0），不要运行，等待官方公告。\n
+12. MAA-Simu 的没有语音提示。如果听到 低语声、笑声或非程序生成的语音，关闭扬声器，并检查是否有未知脚本在运行。\n
+13. MAA-Simu 不会在周日凌晨更新。如果收到更新提示，请忽略，不要查看更新公告，直到周一。
     </system:String>
     <system:String x:Key="EmployeeGuidelines">员工守则</system:String>
     <!--  !EasterEggs  -->
@@ -1424,10 +1424,10 @@ DEBUG 目录下保存的图片有数量限制，超出后会自动清理旧图�
     <system:String x:Key="VersionUpdatedTo" xml:space="preserve">已更新: </system:String>
     <!--  !VersionUpdatePopup  -->
     <!--  RootViewModel  -->
-    <system:String x:Key="ConfirmExitTitle">MAA 正在运行任务</system:String>
+    <system:String x:Key="ConfirmExitTitle">MAA-Simu 正在运行任务</system:String>
     <system:String x:Key="ConfirmExitText">确定要退出吗？</system:String>
-    <system:String x:Key="UpdateConfirmExitTitle">MAA 正在更新</system:String>
-    <system:String x:Key="UpdateConfirmExitText">正在执行更新，此时退出 MAA 可能导致资源损坏。\n确定要退出吗？</system:String>
+    <system:String x:Key="UpdateConfirmExitTitle">MAA-Simu 正在更新</system:String>
+    <system:String x:Key="UpdateConfirmExitText">正在执行更新，此时退出 MAA-Simu 可能导致资源损坏。\n确定要退出吗？</system:String>
     <!--  !RootViewModel  -->
     <!--  Api  -->
     <system:String x:Key="ApiUpdateSuccess">热更数据获取成功</system:String>
@@ -1462,7 +1462,7 @@ DEBUG 目录下保存的图片有数量限制，超出后会自动清理旧图�
     <!--  !Remote Control  -->
     <!--  External Notification  -->
     <system:String x:Key="ExternalNotificationEmailTemplateHello">博士，有新的通知哦！</system:String>
-    <system:String x:Key="ExternalNotificationEmailTemplateFooterLineOne">您会收到此邮件，是因为您在 MAA 中设置了 SMTP 服务器并开启了邮件通知服务。</system:String>
+    <system:String x:Key="ExternalNotificationEmailTemplateFooterLineOne">您会收到此邮件，是因为您在 MAA-Simu 中设置了 SMTP 服务器并开启了邮件通知服务。</system:String>
     <system:String x:Key="ExternalNotificationEmailTemplateFooterLineTwo">此邮件为系统自动发送，请勿回复。</system:String>
     <system:String x:Key="ExternalNotificationEmailTemplateLinkOfficialSite">官网</system:String>
     <system:String x:Key="ExternalNotificationEmailTemplateLinkCopilotSite">作业站</system:String>
@@ -1511,7 +1511,7 @@ DEBUG 目录下保存的图片有数量限制，超出后会自动清理旧图�
  通过开局刷点数：(小心已有存档被删除)
   1. 点数刷满后会输出 ｢任务完成｣，自动停止任务
   2. 不要在生息演算的编队中有{key=Operator}的情况下使用
-  3. 手动确认存档情况并删除，以免 MAA 删除你的珍贵存档
+  3. 手动确认存档情况并删除，以免 MAA-Simu 删除你的珍贵存档
   4. 导航还没写，不能从生息演算以外的位置开始任务
   5. 如果任务过程中报错、点数没刷满就任务完成，请前往 GitHub 提交 issue
 
@@ -1526,8 +1526,8 @@ DEBUG 目录下保存的图片有数量限制，超出后会自动清理旧图�
     <system:String x:Key="ReclamationToolToCraftPlaceholder">荧光棒</system:String>
     <!--  !Reclamation  -->
     <!--  Boot  -->
-    <system:String x:Key="UnknownDllDetected" xml:space="preserve">检测到 MAA 运行目录下存在未知 DLL 文件，可能导致 DLL 劫持并产生意外后果。
-请将 MAA 解压到一个独立的新文件夹中，或移除不属于 MAA 的 DLL 文件。
+    <system:String x:Key="UnknownDllDetected" xml:space="preserve">检测到 MAA-Simu 运行目录下存在未知 DLL 文件，可能导致 DLL 劫持并产生意外后果。
+请将 MAA-Simu 解压到一个独立的新文件夹中，或移除不属于 MAA-Simu 的 DLL 文件。
     </system:String>
     <system:String x:Key="VC++NotInstalled" xml:space="preserve">MaaCore.dll 加载失败，可能的原因包括：
 • 压缩包未完整解压，缺少必要的 DLL 文件
@@ -1535,18 +1535,18 @@ DEBUG 目录下保存的图片有数量限制，超出后会自动清理旧图�
 • 其他系统依赖缺失
 
 请先确认是否已将压缩包完整解压。
-点击 "{key=Confirm}" 将尝试安装/更新 VC++ 运行库并退出 MAA（若为其他原因则无效），点击 "{key=Cancel}" 将直接退出。
+点击 "{key=Confirm}" 将尝试安装/更新 VC++ 运行库并退出 MAA-Simu（若为其他原因则无效），点击 "{key=Cancel}" 将直接退出。
     </system:String>
     <system:String x:Key="MultiInstanceUnderSamePath" xml:space="preserve">同一路径下只能启动一个实例！
-如需多开 MAA，请复制一份新的 MAA 到其他文件夹下，并设置使用不同的 MAA，相同的 adb 和不同的模拟器地址进行多开操作。
+如需多开 MAA-Simu，请复制一份新的 MAA-Simu 到其他文件夹下，并设置使用不同的 MAA-Simu，相同的 adb 和不同的模拟器地址进行多开操作。
     </system:String>
     <system:String x:Key="SoftwareLocationWarning">当前软件所在的位置无法保存数据，可能会导致设置丢失或运行异常。建议将软件移动到可写目录中运行，请勿放置在系统保护目录（如 Program Files、System32 或 Windows 目录）中。</system:String>
-    <system:String x:Key="UnsupportedInstallLocationError" xml:space="preserve">MAA 不能直接在当前安装位置运行，例如临时目录、盘符根目录，或系统/用户共享目录。
+    <system:String x:Key="UnsupportedInstallLocationError" xml:space="preserve">MAA-Simu 不能直接在当前安装位置运行，例如临时目录、盘符根目录，或系统/用户共享目录。
 
 当前安装目录：{0}
 命中的不支持位置：{1}
 
-这些位置层级过高，容易引发文件覆盖、配置写入异常或数据混乱。请先将 MAA 移动到独立文件夹中，例如 D:\\MAA\\，再重新启动。</system:String>
+这些位置层级过高，容易引发文件覆盖、配置写入异常或数据混乱。请先将 MAA-Simu 移动到独立文件夹中，例如 D:\\MAA-Simu\\，再重新启动。</system:String>
     <!--  !Boot  -->
     <!--  SimpleEncryptionHelper  -->
     <system:String x:Key="EncryptionError">加解密失败，请重新配置相关设置，否则加密内容将以明文形式存储在配置文件中。</system:String>
@@ -1598,7 +1598,7 @@ DEBUG 目录下保存的图片有数量限制，超出后会自动清理旧图�
 
     <system:String x:Key="Achievement.CongratulationError.Title">喜报</system:String>
     <system:String x:Key="Achievement.CongratulationError.Description">我的 MMA 怎么用不了了？</system:String>
-    <system:String x:Key="Achievement.CongratulationError.Conditions">触发过 MAA 的报错</system:String>
+    <system:String x:Key="Achievement.CongratulationError.Conditions">触发过 MAA-Simu 的报错</system:String>
 
     <system:String x:Key="Achievement.UnexpectedCrash.Title">不速之客</system:String>
     <system:String x:Key="Achievement.UnexpectedCrash.Description">你触发了未知的领域。</system:String>
@@ -1627,7 +1627,7 @@ DEBUG 目录下保存的图片有数量限制，超出后会自动清理旧图�
 
     <system:String x:Key="Achievement.Rules.Title">严重错讠</system:String>
     <system:String x:Key="Achievement.Rules.Description">我会一直注视着你。</system:String>
-    <system:String x:Key="Achievement.Rules.Conditions">MAA 员工守则</system:String>
+    <system:String x:Key="Achievement.Rules.Conditions">MAA-Simu 员工守则</system:String>
 
     <system:String x:Key="Achievement.VersionClick.Title">这也能点？</system:String>
     <system:String x:Key="Achievement.VersionClick.Description">这是什么？版本号，点一下。</system:String>
@@ -1693,7 +1693,7 @@ DEBUG 目录下保存的图片有数量限制，超出后会自动清理旧图�
     <system:String x:Key="Achievement.RecruitNoSixStar.Description">事已至此，先睡觉吧。</system:String>
     <system:String x:Key="Achievement.RecruitNoSixStar.Conditions">｢{key=Recruiting}｣ 中累计 500 次没出现六星 tag</system:String>
 
-    <system:String x:Key="Achievement.RecruitNoSixStarStreak.Title">一定是 MAA 干的！</system:String>
+    <system:String x:Key="Achievement.RecruitNoSixStarStreak.Title">一定是 MAA-Simu 干的！</system:String>
     <system:String x:Key="Achievement.RecruitNoSixStarStreak.Description">乆乆乆乆乆乆乆乆乆乆！</system:String>
     <system:String x:Key="Achievement.RecruitNoSixStarStreak.Conditions">｢{key=Recruiting}｣ 中连续 500 次没出现六星 tag</system:String>
 
@@ -1703,15 +1703,15 @@ DEBUG 目录下保存的图片有数量限制，超出后会自动清理旧图�
 
     <system:String x:Key="Achievement.Pioneer1.Title">测试先锋</system:String>
     <system:String x:Key="Achievement.Pioneer1.Description">您率先体验了处于测试中的版本。</system:String>
-    <system:String x:Key="Achievement.Pioneer1.Conditions">将 MAA 更新至{key=UpdateCheckBeta}</system:String>
+    <system:String x:Key="Achievement.Pioneer1.Conditions">将 MAA-Simu 更新至{key=UpdateCheckBeta}</system:String>
 
     <system:String x:Key="Achievement.Pioneer2.Title">超级测试先锋</system:String>
     <system:String x:Key="Achievement.Pioneer2.Description">您使用了最新的测试版本（出现任何新的问题请前往{key=IssueReport}！）</system:String>
-    <system:String x:Key="Achievement.Pioneer2.Conditions">将 MAA 更新至{key=UpdateCheckNightly}</system:String>
+    <system:String x:Key="Achievement.Pioneer2.Conditions">将 MAA-Simu 更新至{key=UpdateCheckNightly}</system:String>
 
     <system:String x:Key="Achievement.Pioneer3.Title">DEBUG 急先锋</system:String>
     <system:String x:Key="Achievement.Pioneer3.Description">能下到这个版本的都不是一般人。</system:String>
-    <system:String x:Key="Achievement.Pioneer3.Conditions">使用未发布版本的 MAA</system:String>
+    <system:String x:Key="Achievement.Pioneer3.Conditions">使用未发布版本的 MAA-Simu</system:String>
 
     <system:String x:Key="Achievement.Irreplaceable.Title">无可替代</system:String>
     <system:String x:Key="Achievement.Irreplaceable.Description">或许我应该换一份作业？</system:String>
@@ -1734,16 +1734,16 @@ DEBUG 目录下保存的图片有数量限制，超出后会自动清理旧图�
     <system:String x:Key="Achievement.SnapshotChallenge4.Conditions">平均截图用时小于 100ms</system:String>
 
     <system:String x:Key="Achievement.SnapshotChallenge5.Title">截图挑战 · Ultra</system:String>
-    <system:String x:Key="Achievement.SnapshotChallenge5.Description">截图速度击败了 90% 的 MAA 用户。</system:String>
+    <system:String x:Key="Achievement.SnapshotChallenge5.Description">截图速度击败了 90% 的 MAA-Simu 用户。</system:String>
     <system:String x:Key="Achievement.SnapshotChallenge5.Conditions">平均截图用时小于 10ms</system:String>
 
     <system:String x:Key="Achievement.SnapshotChallenge6.Title">截图挑战 · Beyond</system:String>
-    <system:String x:Key="Achievement.SnapshotChallenge6.Description">你发现了 MAA 的隐藏力量。</system:String>
+    <system:String x:Key="Achievement.SnapshotChallenge6.Description">你发现了 MAA-Simu 的隐藏力量。</system:String>
     <system:String x:Key="Achievement.SnapshotChallenge6.Conditions">平均截图用时小于 5ms</system:String>
 
     <system:String x:Key="Achievement.Lucky.Title">Lucky</system:String>
     <system:String x:Key="Achievement.Lucky.Description">据说能看到这条成就的人都三连金了。</system:String>
-    <system:String x:Key="Achievement.Lucky.Conditions">启动 MAA 时有极！小！概率触发</system:String>
+    <system:String x:Key="Achievement.Lucky.Conditions">启动 MAA-Simu 时有极！小！概率触发</system:String>
 
     <system:String x:Key="Achievement.CdnTorture.Title">网络折磨人</system:String>
     <system:String x:Key="Achievement.CdnTorture.Description">比宇宙更远的地方，是 GitHub 的服务器。</system:String>
@@ -1807,15 +1807,15 @@ DEBUG 目录下保存的图片有数量限制，超出后会自动清理旧图�
 
     <system:String x:Key="Achievement.UseDaily1.Title">天天打卡</system:String>
     <system:String x:Key="Achievement.UseDaily1.Description">连续签到七天，可惜没有奖励。</system:String>
-    <system:String x:Key="Achievement.UseDaily1.Conditions">连续 7 天使用 MAA</system:String>
+    <system:String x:Key="Achievement.UseDaily1.Conditions">连续 7 天使用 MAA-Simu</system:String>
 
     <system:String x:Key="Achievement.UseDaily2.Title">全勤奖</system:String>
     <system:String x:Key="Achievement.UseDaily2.Description">这个月的全勤奖发一下。</system:String>
-    <system:String x:Key="Achievement.UseDaily2.Conditions">连续 30 天使用 MAA</system:String>
+    <system:String x:Key="Achievement.UseDaily2.Conditions">连续 30 天使用 MAA-Simu</system:String>
 
     <system:String x:Key="Achievement.UseDaily3.Title">全年无休</system:String>
     <system:String x:Key="Achievement.UseDaily3.Description">就是你天天在压榨牛牛？</system:String>
-    <system:String x:Key="Achievement.UseDaily3.Conditions">连续 365 天使用 MAA</system:String>
+    <system:String x:Key="Achievement.UseDaily3.Conditions">连续 365 天使用 MAA-Simu</system:String>
 
     <system:String x:Key="Achievement.AprilFools.Title">愚你同行</system:String>
     <system:String x:Key="Achievement.AprilFools.Description">不会真有人今天上线吧？</system:String>
@@ -1910,12 +1910,12 @@ DEBUG 目录下保存的图片有数量限制，超出后会自动清理旧图�
     <system:String x:Key="Achievement.NotFound404.Conditions">使用远程协议调用错误的任务 id</system:String>
 
     <system:String x:Key="Achievement.Linguist.Title">语言学家</system:String>
-    <system:String x:Key="Achievement.Linguist.Description">MAA，但国际化。</system:String>
+    <system:String x:Key="Achievement.Linguist.Description">MAA-Simu，但国际化。</system:String>
     <system:String x:Key="Achievement.Linguist.Conditions">尝试切换界面语言</system:String>
 
     <system:String x:Key="Achievement.StartupBoot.Title">开机启动</system:String>
     <system:String x:Key="Achievement.StartupBoot.Description">理论上你的开机速度又慢了一点。</system:String>
-    <system:String x:Key="Achievement.StartupBoot.Conditions">设置开机启动 MAA</system:String>
+    <system:String x:Key="Achievement.StartupBoot.Conditions">设置开机启动 MAA-Simu</system:String>
 
     <system:String x:Key="Achievement.ClueObsession.Title">线索强迫症</system:String>
     <system:String x:Key="Achievement.ClueObsession.Description">七色战队，集合！</system:String>
@@ -1923,7 +1923,7 @@ DEBUG 目录下保存的图片有数量限制，超出后会自动清理旧图�
 
     <system:String x:Key="Achievement.Time325.Title">325</system:String>
     <system:String x:Key="Achievement.Time325.Description">你知道这个数字是什么意思对吧？</system:String>
-    <system:String x:Key="Achievement.Time325.Conditions">在 3/13/23 点 25 分还在使用 MAA</system:String>
+    <system:String x:Key="Achievement.Time325.Conditions">在 3/13/23 点 25 分还在使用 MAA-Simu</system:String>
 
     <system:String x:Key="Achievement.PallasStarter.Title">牛牛厨</system:String>
     <system:String x:Key="Achievement.PallasStarter.Description">伟大的战士们啊，我会在你们身边，与你们一同奋勇搏杀。</system:String>
@@ -2020,15 +2020,15 @@ DEBUG 目录下保存的图片有数量限制，超出后会自动清理旧图�
 
     <!--  BadModules  -->
     <system:String x:Key="BadModules.Warning.Heading">悲报</system:String>
-    <system:String x:Key="BadModules.Warning.Prolog">以下注入到 MAA 的 DLL 可能会导致 MAA 闪退或界面渲染异常：</system:String>
-    <system:String x:Key="BadModules.Warning.Epilog">如果您注意到 MAA 存在相关问题，请尝试将 MAA 加入相关软件的排除名单，或卸载相关软件后检查问题是否仍然存在。</system:String>
+    <system:String x:Key="BadModules.Warning.Prolog">以下注入到 MAA-Simu 的 DLL 可能会导致 MAA-Simu 闪退或界面渲染异常：</system:String>
+    <system:String x:Key="BadModules.Warning.Epilog">如果您注意到 MAA-Simu 存在相关问题，请尝试将 MAA-Simu 加入相关软件的排除名单，或卸载相关软件后检查问题是否仍然存在。</system:String>
     <system:String x:Key="BadModules.Warning.DoNotShowAgain">不再显示此警告</system:String>
     <system:String x:Key="BadModules.Confirmation.Heading">警告：性能影响</system:String>
-    <system:String x:Key="BadModules.Confirmation.Text" xml:space="preserve">选择不再显示警告后，MAA 将使用软件渲染而不是硬件渲染。这将导致以下后果：&#x0a;&#x0a;• 性能下降&#x0a;• 界面卡顿&#x0a;• CPU 占用率增高&#x0a;&#x0a;是否确认忽略警告并接受这些影响？</system:String>
+    <system:String x:Key="BadModules.Confirmation.Text" xml:space="preserve">选择不再显示警告后，MAA-Simu 将使用软件渲染而不是硬件渲染。这将导致以下后果：&#x0a;&#x0a;• 性能下降&#x0a;• 界面卡顿&#x0a;• CPU 占用率增高&#x0a;&#x0a;是否确认忽略警告并接受这些影响？</system:String>
     <system:String x:Key="BadModules.UseSoftwareRendering">使用软件渲染</system:String>
     <system:String x:Key="BadModules.UseSoftwareRenderingTip">启用后将不再显示坏模块警告，并使用软件渲染模式。这会导致性能下降、界面卡顿、CPU占用增高等后果。取消勾选可恢复硬件渲染。</system:String>
-    <system:String x:Key="BadModules.ResetWarning">已启用软件渲染模式。该设置需要重启 MAA 才能生效。</system:String>
-    <system:String x:Key="BadModules.ResetSuccess">已重置为硬件渲染模式。需要重启 MAA 后生效。是否立即重启？</system:String>
+    <system:String x:Key="BadModules.ResetWarning">已启用软件渲染模式。该设置需要重启 MAA-Simu 才能生效。</system:String>
+    <system:String x:Key="BadModules.ResetSuccess">已重置为硬件渲染模式。需要重启 MAA-Simu 后生效。是否立即重启？</system:String>
     <!--  !BadModules  -->
 
     <!--  ItemSelection  -->

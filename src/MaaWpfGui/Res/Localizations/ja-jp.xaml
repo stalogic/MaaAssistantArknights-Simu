@@ -46,8 +46,8 @@
     <system:String x:Key="ExternalNotificationSendSuccess">正常に送信</system:String>
     <system:String x:Key="ExternalNotificationSendFail">送信に失敗しました</system:String>
     <system:String x:Key="ExternalNotificationSendTest">テストを送信する</system:String>
-    <system:String x:Key="ExternalNotificationSendTestTitle">MAA 外部通知テスト</system:String>
-    <system:String x:Key="ExternalNotificationSendTestContent">これは MAA 外部通知テスト情報です。 このコンテンツが表示された場合、通知は正常に送信されました！</system:String>
+    <system:String x:Key="ExternalNotificationSendTestTitle">MAA-Simu 外部通知テスト</system:String>
+    <system:String x:Key="ExternalNotificationSendTestContent">これは MAA-Simu 外部通知テスト情報です。 このコンテンツが表示された場合、通知は正常に送信されました！</system:String>
     <system:String x:Key="ExternalNotificationServerChanSendKey">ServerChan Send Key</system:String>
     <system:String x:Key="ExternalNotificationBarkSendKey">Bark Send Key</system:String>
     <system:String x:Key="ExternalNotificationBarkServer">Bark サーバ</system:String>
@@ -112,7 +112,7 @@
     <system:String x:Key="GuideGitHubIssueDescription">MAA Team は、Issue テンプレートの仕様に従って GitHub プラットフォームを通じてユーザーから提出されたフィードバックのみを受け付け、すべてのフィードバックの処理に関する決定権を留保します。</system:String>
     <system:String x:Key="GuideOpenSourceTitle">💡 オープンソースへの参加</system:String>
     <system:String x:Key="GuideOpenSourceDescription">オープンソースプロジェクトとして、ユーザーは AGPL-3.0 ライセンスの下で GitHub プラットフォーム上で MAA の開発に参加できます。MAA Team は、問題報告の代わりに価値あるコード貢献をすることを推奨しています。</system:String>
-    <system:String x:Key="GuideUserAgreement">MAA を使用することにより、「利用規約」に同意したものとみなされます。完全な規約は、公式サイトの下部のリンクからご覧いただけます。</system:String>
+    <system:String x:Key="GuideUserAgreement">MAA-Simu を使用することにより、「利用規約」に同意したものとみなされます。完全な規約は、公式サイトの下部のリンクからご覧いただけます。</system:String>
     <system:String x:Key="RestartGuide">設定ガイドを再表示</system:String>
     <system:String x:Key="RestartGuidePrompt">設定ガイドはメイン画面に表示されます。今すぐアプリケーションを再起動しますか？</system:String>
     <!--  !設定ガイド  -->
@@ -332,7 +332,7 @@
     <system:String x:Key="UpdateCheckStable">安定版</system:String>
     <system:String x:Key="UpdateCheckBeta">ベータ版</system:String>
     <system:String x:Key="UpdateCheckNightly">内部テスト版</system:String>
-    <system:String x:Key="NightlyWarning" xml:space="preserve">内部テスト版の更新を有効にしました。MAA のサポートとテストに感謝します。
+    <system:String x:Key="NightlyWarning" xml:space="preserve">内部テスト版の更新を有効にしました。MAA-Simu のサポートとテストに感謝します。
 
 ご注意ください：
 
@@ -413,23 +413,23 @@
 
 更新の流れ: ここからフルパッケージをダウンロードまたは取り込んだ場合、後続のインストール処理では現在のインストール先ルート直下にある top-level のファイルとフォルダーを、cache、config、data、debug、achievement（クリアスクリーンショット）、background（背景画像）、MAA.Updater.exe を除いて先に整理し、その後でフルパッケージの内容を書き込みます。
 
-リスク: MAA をドライブ直下、デスクトップ、ダウンロードフォルダー、または他のプログラムや個人ファイルと同じ階層に展開している場合、それらの同階層エントリも削除または移動される可能性があります。
+リスク: MAA-Simu をドライブ直下、デスクトップ、ダウンロードフォルダー、または他のプログラムや個人ファイルと同じ階層に展開している場合、それらの同階層エントリも削除または移動される可能性があります。
 
-推奨構成: たとえば次のように、MAA 専用のフォルダーに配置してください。
+推奨構成: たとえば次のように、MAA-Simu 専用のフォルダーに配置してください。
 D:\
-`-- MAA\
+`-- MAA-Simu\
     |-- MAA.exe
     |-- config\
     `-- data\
 
-続行する前に、インストールディレクトリ全体を手動でバックアップしてください。特に MAA 以外で同じ階層に置いてあるファイルに注意してください。
+続行する前に、インストールディレクトリ全体を手動でバックアップしてください。特に MAA-Simu 以外で同じ階層に置いてあるファイルに注意してください。
 現在のインストール先: {0}
 
 ディレクトリ構成を確認し、手動バックアップが完了した場合にのみ続行してください。</system:String>
     <system:String x:Key="PendingFullUpdateManualConfirmYes">バックアップ済みです。更新を続行します</system:String>
     <system:String x:Key="PendingFullUpdateManualConfirmNo">今は更新せず、このバージョンを起動します</system:String>
     <system:String x:Key="LocalUpdatePackageImportedTitle">ローカル更新パッケージの準備ができました</system:String>
-    <system:String x:Key="LocalUpdatePackageImportedDesc">利用可能なローカル更新パッケージを検出しました。今すぐ MAA を更新しますか？（プロセスを再起動します）</system:String>
+    <system:String x:Key="LocalUpdatePackageImportedDesc">利用可能なローカル更新パッケージを検出しました。今すぐ MAA-Simu を更新しますか？（プロセスを再起動します）</system:String>
     <system:String x:Key="LocalUpdatePackageUnsupported">圧縮ファイルを認識できません: {0}\n現在のアーキテクチャ向けのフルパッケージ、または現在のバージョンからより新しいバージョンへの OTA パッケージのみインポートできます。\n現在のバージョン: {1}\n現在のアーキテクチャ: {2}\n対応するファイル名の例: MAA-vTARGET_VERSION-win-{2}.zip\nまたは MAAComponent-OTA-{1}_vTARGET_VERSION-win-{2}.zip</system:String>
     <system:String x:Key="NewVersionFoundButNoPackageTitle">新バージョンが見つかりましたが、アップデートパッケージがありません</system:String>
     <system:String x:Key="NewVersionFoundButNoPackageDesc">アップデートするには、手動でフルパッケージをダウンロードしてください！</system:String>
@@ -449,7 +449,7 @@ D:\
     <system:String x:Key="LaunchOnSystemStartup">スタートアップ</system:String>
     <system:String x:Key="LaunchOnSystemStartupWarning" xml:space="preserve">
 この機能は、レジストリを変更してシステム起動時に自動起動するように設定します。
-MAA は非インストール型のアプリケーションであり、レジストリを自動で削除しません。
+MAA-Simu は非インストール型のアプリケーションであり、レジストリを自動で削除しません。
 レジストリの残留が気になる場合は、削除前にこのオプションを無効にしてください。
 </system:String>
     <system:String x:Key="LaunchOnSystemStartupAdminPrompt">
@@ -595,8 +595,8 @@ MAA は非インストール型のアプリケーションであり、レジス�
     <system:String x:Key="MinimizeToTray">最小化した際にトレイに表示</system:String>
     <system:String x:Key="SystemNotification">重要な通知をポップアップする</system:String>
     <system:String x:Key="SystemNotificationInfo" xml:space="preserve">
-MAA は非インストール型のポータブルソフトウェアで、通知機能は Microsoft.Toolkit.Uwp.Notifications ライブラリを使用しています。このライブラリはデフォルトで実行ファイルのパスを登録識別子として使用します。
-複数の場所から MAA を起動すると、Windows は各パスごとに別々の通知アイコン（タスクバーのトーストなど）を作成します。これはライブラリのデフォルト動作であり、MAA は制御または自動削除できません。
+MAA-Simu は非インストール型のポータブルソフトウェアで、通知機能は Microsoft.Toolkit.Uwp.Notifications ライブラリを使用しています。このライブラリはデフォルトで実行ファイルのパスを登録識別子として使用します。
+複数の場所から MAA-Simu を起動すると、Windows は各パスごとに別々の通知アイコン（タスクバーのトーストなど）を作成します。これはライブラリのデフォルト動作であり、MAA-Simu は制御または自動削除できません。
 削除したい場合は、レジストリエディターを開き、以下の場所に移動してください：
 HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings
 該当するパスのキーを削除してください。
@@ -660,7 +660,7 @@ shell/sdk/external_renderer_ipc/external_renderer_ipc.dll\n
     <system:String x:Key="MuMu12ExtrasEnabledTip" xml:space="preserve">
 MuMu / MuMu Arknights V4.0.0 以降を利用する必要があり、MuMu Global は V5.21.3 以降に対応しています。
 この機能を有効にした後、すぐにスクリーンショットテストを実行することを強くお勧めします。
-MAA はレジストリからインストールパスを自動的に取得しますが、失敗した場合は手動で入力してください。\n
+MAA-Simu はレジストリからインストールパスを自動的に取得しますが、失敗した場合は手動で入力してください。\n
 インストールパスには、エミュレーターのインストールディレクトリのルートディレクトリを入力する必要があります。例えば、エミュレーターのプロセスファイルパスが
 C:\\Program Files\\Netease\\MuMuPlayer-12.0\\shell\\MuMuPlayer.exe または
 C:\\Program Files\\Netease\\MuMuPlayer-12.0\\nx_device\\12.0\\shell\\MuMuNxDevice.exe
@@ -682,7 +682,7 @@ C:\\Program Files\\Netease\\MuMuPlayer-12.0 を入力してください。\n
     <system:String x:Key="LdExtrasEnabledTip" xml:space="preserve">
 LDPlayer 9 V9.1.32以降が必要です。
 この機能を有効にした後、すぐにスクリーンショットテストを実行することを強くお勧めします。
-MAA はレジストリから自動的にインストールパスを取得しますが、失敗した場合は手動で入力してください。\n
+MAA-Simu はレジストリから自動的にインストールパスを取得しますが、失敗した場合は手動で入力してください。\n
 インストールパスはエミュレーターのインストールディレクトリのルートディレクトリを入力してください。例えば、エミュレーターのプロセスファイルパスが
 C:\\leidian\\LDPlayer9\\dnplayer.exe の場合、
 C:\\leidian\\LDPlayer9
@@ -757,7 +757,7 @@ C:\\leidian\\LDPlayer9
     <system:String x:Key="Sleep">スリープ</system:String>
     <system:String x:Key="Shutdown">シャットダウン</system:String>
     <system:String x:Key="Once">今回のみ*</system:String>
-    <system:String x:Key="PostActionOnceTip" xml:space="preserve">チェックすると、オプションの変更が保存されず、次回 MAA 起動時または {key=LinkStart} 後に復元されます
+    <system:String x:Key="PostActionOnceTip" xml:space="preserve">チェックすると、オプションの変更が保存されず、次回 MAA-Simu 起動時または {key=LinkStart} 後に復元されます
 このオプションのチェックを解除すると、他のオプションの状態は正常に保存されます
 他のオプションを右クリックすると、このオプションも同時にチェック/チェック解除されます</system:String>
     <system:String x:Key="IfNoOtherMaa">他のMAAがない場合</system:String>
@@ -970,7 +970,7 @@ C:\\leidian\\LDPlayer9
     <system:String x:Key="MiniGame@RM-TR-1">再建画策 RM-TR-1</system:String>
     <system:String x:Key="MiniGame@RM-TR-1Tip" xml:space="preserve">チュートリアル終了後、前哨基地に入り、画面を一番左までスワイプしてください。</system:String>
     <system:String x:Key="MiniGame@RM-1">再建画策 RM-1</system:String>
-    <system:String x:Key="MiniGame@RM-1Tip" xml:space="preserve">RM-TR-1 を約3時間周回。建造策略で、石材採掘ラインを最右まで、&#10;特別任命でウィシャデルを指定し、その後可能な限り昇進2特化3、スキル1を携行、&#10;12体のオペレーターを満載、その他の11体の配置コストをウィシャデルより低く、&#10;生産モジュール各1体携行、手動でステージに入って退出、&#10;RM-1 を画面中央に配置、MAA を実行。</system:String>
+    <system:String x:Key="MiniGame@RM-1Tip" xml:space="preserve">RM-TR-1 を約3時間周回。建造策略で、石材採掘ラインを最右まで、&#10;特別任命でウィシャデルを指定し、その後可能な限り昇進2特化3、スキル1を携行、&#10;12体のオペレーターを満載、その他の11体の配置コストをウィシャデルより低く、&#10;生産モジュール各1体携行、手動でステージに入って退出、&#10;RM-1 を画面中央に配置、MAA-Simu を実行。</system:String>
     <system:String x:Key="MiniGame@AT@ConversationRoom">AT - 相談室</system:String>
     <system:String x:Key="MiniGame@AT@ConversationRoomTip" xml:space="preserve">イベント画面（右下角に ｢営業開始｣ ボタンがあります）でタスクを開始します。</system:String>
     <system:String x:Key="MiniGame@ALL@GreenGrass">デュエルチャンネル：グリーングラスシティ</system:String>
@@ -1121,7 +1121,7 @@ C:\\leidian\\LDPlayer9
     <!--  ErrorView  -->
     <system:String x:Key="Error">エラー</system:String>
     <system:String x:Key="ErrorCongratulations">おめでとうございます</system:String>
-    <system:String x:Key="ErrorProlog">MAA に問題が発生しました</system:String>
+    <system:String x:Key="ErrorProlog">MAA-Simu に問題が発生しました</system:String>
     <system:String x:Key="ErrorDetails">詳細情報</system:String>
     <system:String x:Key="ErrorSolution">解決策</system:String>
     <system:String x:Key="ErrorSolutionMoveMaaExeOutOfFolder">MAA.exe ファイルを単独で移動しないでください。ソフトウェアの場所を変更する必要がある場合は、フォルダー全体を移動するか、このフォルダーに MAA.exe のショートカットを作成してから、ショートカットを別の場所にドラッグしてください。</system:String>
@@ -1173,7 +1173,7 @@ C:\\leidian\\LDPlayer9
     <system:String x:Key="CompleteCombat">戦闘完了</system:String>
     <system:String x:Key="AllTasksComplete">すべてのタスクが完了しました！\n({0} 後)</system:String>
     <system:String x:Key="SanityReport">({TimeDiff} 後)、{DateTime} に理性が完全回復します。</system:String>
-    <system:String x:Key="AllTaskCompleteContent">({TimeDiff} 後) MAA は、{DateTime} の {Preset} 構成の下にあるすべてのプリセット タスクを完了しました。</system:String>
+    <system:String x:Key="AllTaskCompleteContent">({TimeDiff} 後) MAA-Simu は、{DateTime} の {Preset} 構成の下にあるすべてのプリセット タスクを完了しました。</system:String>
     <system:String x:Key="BackgroundLinkStarted">Tasks started</system:String>
     <system:String x:Key="BackgroundLinkStopped">Tasks stopped</system:String>
     <system:String x:Key="FailedToOpenClient">クライアントを開くのに失敗しました。構成ファイルを確認してください</system:String>
@@ -1319,9 +1319,9 @@ C:\\leidian\\LDPlayer9
     <system:String x:Key="AttachWindowMultipleFound">{0} 個の "{1}" ウィンドウが見つかりました。最初のものを使用します</system:String>
     <system:String x:Key="AttachWindowFound">ウィンドウ "{0}" が見つかりました</system:String>
     <system:String x:Key="Administrator">管理者</system:String>
-    <system:String x:Key="AttachWindowNeedAdmin">PC 接続には管理者権限が必要です。\n管理者として MAA を再起動しますか？</system:String>
+    <system:String x:Key="AttachWindowNeedAdmin">PC 接続には管理者権限が必要です。\n管理者として MAA-Simu を再起動しますか？</system:String>
     <system:String x:Key="RestartingAsAdmin">管理者として再起動しています…</system:String>
-    <system:String x:Key="RestartAsAdminFailed">手動で管理者として MAA を実行してください。</system:String>
+    <system:String x:Key="RestartAsAdminFailed">手動で管理者として MAA-Simu を実行してください。</system:String>
     <system:String x:Key="AttachWindowFailed">AttachWindow の接続に失敗しました。スクリーンキャプチャ/入力方法の設定を確認してください</system:String>
     <system:String x:Key="UseAttachWindowTip">エミュレータや携帯電話への ADB 接続ではなく、アークナイツ PC クライアントに Win32 ウィンドウバインディングを使用します</system:String>
     <system:String x:Key="UseAttachWindowWarning" xml:space="preserve">PC 接続（実験的機能・動作の安定性は保証されません）
@@ -1330,7 +1330,7 @@ MAA Team の開発リソースが限られているため、この機能はコ�
 また、PC 対応の改善にご協力いただける開発者の Pull Request はいつでも歓迎しています。
 
 使用前にご確認ください：
-1. MAA を管理者権限で起動してください
+1. MAA-Simu を管理者権限で起動してください
 2. 一部のスクリーンキャプチャ方式では、ゲームウィンドウを最小化できません
 3. アークナイツ設定 → ゲーム → UI スケーリングを 100% に設定してください
 4. ゲーム解像度は 16:9 である必要があります。推奨設定：720×1280 または 1080×1920</system:String>
@@ -1402,19 +1402,19 @@ DEBUGディレクトリに保存される画像には数量制限があり、超
     <system:String x:Key="DrunkAndStaggering">あれ、ドクター。どうしてそんなフラフラと歩いておられるのですか？</system:String>
     <system:String x:Key="Hangover">つ、次は飲みすぎないようにしないと……</system:String>
     <system:String x:Key="HelloWorld">Hello World!</system:String>
-    <system:String x:Key="EasterEggsRules" xml:space="preserve">1. MAA の正式版にはデバッグモードはありません。実行中にデバッグオプションが表示された場合は、すぐにソフトウェアを閉じ、それをクリックせず、最寄りの MAA 開発者に連絡してください。\n
+    <system:String x:Key="EasterEggsRules" xml:space="preserve">1. MAA-Simu の正式版にはデバッグモードはありません。実行中にデバッグオプションが表示された場合は、すぐにソフトウェアを閉じ、それをクリックせず、最寄りの MAA-Simu 開発者に連絡してください。\n
 2. インフラのシフト変更は自動です。{key=Operator}が 72 時間以上連続して働いている場合は、手動でシフトを調整し、システム時間が正しいか確認してください。\n
-3. 公開募集のタグは変更されません。カウントダウンが終了する前にタグが変更された場合は、募集を続けず、MAA を再起動してから操作してください。\n
+3. 公開募集のタグは変更されません。カウントダウンが終了する前にタグが変更された場合は、募集を続けず、MAA-Simu を再起動してから操作してください。\n
 4. MAA はフレンドリクエストを送信しません。「MAA_System」からフレンドリクエストを受け取った場合は、承認せず、そのアカウントを削除してください。\n
 5. ローグライクの支援は提案のみを提供します。ゲームが存在しないオプションを自動的に選択した場合は、強制終了してクライアントを再起動してください。\n
-6. MAA のログファイルに文字化けが含まれているべきではありません。「ERROR: データ解析に失敗しました」以外のエラー情報がログに表示された場合は、ログを削除してソフトウェアを再インストールしてください。\n
-7. ナイトモードは安全です。ただし、MAA が午前 3 時 33 分に自動的に起動して「不明なタスク」を実行した場合は、電源を抜き、日の出まで待ってから使用してください。\n
-8. 最後のルールは存在しません。このルールを見た場合は、それを忘れて、通常どおり MAA を使用してください。\n
-9. MAA 内で炒...锟斤拷拷拷拷喜报拷拷拷饭 をクリックしないでください。\n
+6. MAA-Simu のログファイルに文字化けが含まれているべきではありません。「ERROR: データ解析に失敗しました」以外のエラー情報がログに表示された場合は、ログを削除してソフトウェアを再インストールしてください。\n
+7. ナイトモードは安全です。ただし、MAA-Simu が午前 3 時 33 分に自動的に起動して「不明なタスク」を実行した場合は、電源を抜き、日の出まで待ってから使用してください。\n
+8. 最後のルールは存在しません。このルールを見た場合は、それを忘れて、通常どおり MAA-Simu を使用してください。\n
+9. MAA-Simu 内で炒...锟斤拷拷拷拷喜报拷拷拷饭 をクリックしないでください。\n
 10. MirrorChyan親切です。少しの代償を払うだけで、彼女の保護を受けることができます。\n
-11. MAA は将来のバージョンをサポートしていません。ソフトウェアが未発表のバージョン番号（例: v10.0.0）に自動更新された場合は、実行せず、公式発表を待ってください。\n
-12. MAA に音声プロンプトはありません。ささやき声、笑い声、またはプログラム生成以外の音声が聞こえた場合は、スピーカーをオフにし、不明なスクリプトが実行されていないか確認してください。\n
-13. MAA は日曜日の深夜に更新されません。更新プロンプトを受け取った場合は無視し、月曜日まで更新通知を確認しないでください。
+11. MAA-Simu は将来のバージョンをサポートしていません。ソフトウェアが未発表のバージョン番号（例: v10.0.0）に自動更新された場合は、実行せず、公式発表を待ってください。\n
+12. MAA-Simu に音声プロンプトはありません。ささやき声、笑い声、またはプログラム生成以外の音声が聞こえた場合は、スピーカーをオフにし、不明なスクリプトが実行されていないか確認してください。\n
+13. MAA-Simu は日曜日の深夜に更新されません。更新プロンプトを受け取った場合は無視し、月曜日まで更新通知を確認しないでください。
     </system:String>
     <system:String x:Key="EmployeeGuidelines">従業員規則</system:String>
     <!--  !EasterEggs  -->
@@ -1462,7 +1462,7 @@ DEBUGディレクトリに保存される画像には数量制限があり、超
     <!--  !Remote Control  -->
     <!--  External Notification  -->
     <system:String x:Key="ExternalNotificationEmailTemplateHello">ドクター、新しいお知らせがあります!</system:String>
-    <system:String x:Key="ExternalNotificationEmailTemplateFooterLineOne">このメッセージが表示されるのは、MAA で SMTP サーバーをセットアップし、メール通知サービスを有効にしているためです。</system:String>
+    <system:String x:Key="ExternalNotificationEmailTemplateFooterLineOne">このメッセージが表示されるのは、MAA-Simu で SMTP サーバーをセットアップし、メール通知サービスを有効にしているためです。</system:String>
     <system:String x:Key="ExternalNotificationEmailTemplateFooterLineTwo">このメールは自動的に送信されますので、返信しないでください。</system:String>
     <system:String x:Key="ExternalNotificationEmailTemplateLinkOfficialSite">公式サイト</system:String>
     <system:String x:Key="ExternalNotificationEmailTemplateLinkCopilotSite">Copilot（中国語）</system:String>
@@ -1524,8 +1524,8 @@ DEBUGディレクトリに保存される画像には数量制限があり、超
     <system:String x:Key="ReclamationToolToCraftPlaceholder">ケミカルライト</system:String>
     <!--  !Reclamation  -->
     <!--  Boot  -->
-    <system:String x:Key="UnknownDllDetected" xml:space="preserve">MAA の実行ディレクトリに不明な DLL ファイルが検出されました。DLL ハイジャックが発生し、予期しない結果を招く可能性があります。
-MAA を新しい独立したフォルダーに解凍するか、MAA に属さない DLL ファイルを削除してください。
+    <system:String x:Key="UnknownDllDetected" xml:space="preserve">MAA-Simu の実行ディレクトリに不明な DLL ファイルが検出されました。DLL ハイジャックが発生し、予期しない結果を招く可能性があります。
+MAA-Simu を新しい独立したフォルダーに解凍するか、MAA-Simu に属さない DLL ファイルを削除してください。
     </system:String>
     <system:String x:Key="VC++NotInstalled" xml:space="preserve">MaaCore.dll の読み込みに失敗しました。考えられる原因：
 • アーカイブが完全に解凍されておらず、必要な DLL ファイルが不足している
@@ -1533,18 +1533,18 @@ MAA を新しい独立したフォルダーに解凍するか、MAA に属さな
 • その他のシステム依存関係が不足している
 
 まず、アーカイブが完全に解凍されているかご確認ください。
-「{key=Confirm}」をクリックすると VC++ ランタイムのインストール/更新を試みて MAA を終了します（他の原因の場合は無効）。「{key=Cancel}」をクリックすると直接終了します。
+「{key=Confirm}」をクリックすると VC++ ランタイムのインストール/更新を試みて MAA-Simu を終了します（他の原因の場合は無効）。「{key=Cancel}」をクリックすると直接終了します。
     </system:String>
     <system:String x:Key="MultiInstanceUnderSamePath" xml:space="preserve">同じパスの下で起動できるのは1つのインスタンスのみ！
-MAA を複数開くには、新しい MAA を他のフォルダにコピーし、異なる MAA、同じ adb、異なるシミュレータアドレスを使用して複数の操作を行うように設定します。
+MAA-Simu を複数開くには、新しい MAA-Simu を他のフォルダにコピーし、異なる MAA-Simu、同じ adb、異なるシミュレータアドレスを使用して複数の操作を行うように設定します。
     </system:String>
     <system:String x:Key="SoftwareLocationWarning">現在のソフトウェアの場所ではデータを保存できません。設定が失われるか、実行時に問題が発生する可能性があります。書き込み可能なディレクトリに移動してください。システム保護ディレクトリ（Program Files、System32、Windows ディレクトリなど）には配置しないでください。</system:String>
-    <system:String x:Key="UnsupportedInstallLocationError" xml:space="preserve">MAA は、一時ディレクトリ、ドライブ直下、またはシステム/ユーザー共有ディレクトリのような現在のインストール先からは実行できません。
+    <system:String x:Key="UnsupportedInstallLocationError" xml:space="preserve">MAA-Simu は、一時ディレクトリ、ドライブ直下、またはシステム/ユーザー共有ディレクトリのような現在のインストール先からは実行できません。
 
 現在のインストール先: {0}
 該当した非対応の場所: {1}
 
-これらの場所は階層が高すぎるため、ファイルの上書き、設定書き込み失敗、データ混乱の原因になります。D:\\MAA\\ のような専用フォルダーへ移動してから再度起動してください。</system:String>
+これらの場所は階層が高すぎるため、ファイルの上書き、設定書き込み失敗、データ混乱の原因になります。D:\\MAA-Simu\\ のような専用フォルダーへ移動してから再度起動してください。</system:String>
     <!--  !Boot  -->
     <!--  SimpleEncryptionHelper  -->
     <system:String x:Key="EncryptionError">暗号化と復号化に失敗しました。関連設定を再設定してください。そうでないと、暗号化された内容は設定ファイルに平文で保存されます。</system:String>
@@ -1736,7 +1736,7 @@ MAA を複数開くには、新しい MAA を他のフォルダにコピーし�
     <system:String x:Key="Achievement.SnapshotChallenge5.Conditions">平均スクリーンショット時間が 10ms 未満</system:String>
 
     <system:String x:Key="Achievement.SnapshotChallenge6.Title">スクリーンショットチャレンジ · Beyond</system:String>
-    <system:String x:Key="Achievement.SnapshotChallenge6.Description">あなたは MAA の隠された力を発見しました。</system:String>
+    <system:String x:Key="Achievement.SnapshotChallenge6.Description">あなたは MAA-Simu の隠された力を発見しました。</system:String>
     <system:String x:Key="Achievement.SnapshotChallenge6.Conditions">平均スクリーンショット時間が 5ms 未満</system:String>
 
     <system:String x:Key="Achievement.Lucky.Title">ラッキー</system:String>
@@ -1908,7 +1908,7 @@ MAA を複数開くには、新しい MAA を他のフォルダにコピーし�
     <system:String x:Key="Achievement.NotFound404.Conditions">リモートプロトコルで間違ったタスクidを呼び出す</system:String>
 
     <system:String x:Key="Achievement.Linguist.Title">言語学者</system:String>
-    <system:String x:Key="Achievement.Linguist.Description">MAA、しかし国際化。</system:String>
+    <system:String x:Key="Achievement.Linguist.Description">MAA-Simu、しかし国際化。</system:String>
     <system:String x:Key="Achievement.Linguist.Conditions">インターフェース言語を切り替えてみる</system:String>
 
     <system:String x:Key="Achievement.StartupBoot.Title">起動時起動</system:String>
@@ -2018,15 +2018,15 @@ MAA を複数開くには、新しい MAA を他のフォルダにコピーし�
 
     <!--  BadModules  -->
     <system:String x:Key="BadModules.Warning.Heading">悲報</system:String>
-    <system:String x:Key="BadModules.Warning.Prolog">以下の DLL を MAA に注入すると、MAA がクラッシュしたり、インターフェースのレンダリングに異常が発生する可能性があります：</system:String>
-    <system:String x:Key="BadModules.Warning.Epilog">MAA に関連する問題がある場合は、関連ソフトウェアの除外リストに MAA を追加するか、関連ソフトウェアをアンインストールした後、問題がまだ存在するかどうかを確認してください。</system:String>
+    <system:String x:Key="BadModules.Warning.Prolog">以下の DLL を MAA-Simu に注入すると、MAA-Simu がクラッシュしたり、インターフェースのレンダリングに異常が発生する可能性があります：</system:String>
+    <system:String x:Key="BadModules.Warning.Epilog">MAA-Simu に関連する問題がある場合は、関連ソフトウェアの除外リストに MAA-Simu を追加するか、関連ソフトウェアをアンインストールした後、問題がまだ存在するかどうかを確認してください。</system:String>
     <system:String x:Key="BadModules.Warning.DoNotShowAgain">この警告を再表示しない</system:String>
     <system:String x:Key="BadModules.Confirmation.Heading">警告：パフォーマンスへの影響</system:String>
-    <system:String x:Key="BadModules.Confirmation.Text" xml:space="preserve">警告を表示しないように選択すると、MAA はハードウェアレンダリングではなくソフトウェアレンダリングを使用します。これにより以下の結果が生じます：&#x0a;&#x0a;• パフォーマンスの低下&#x0a;• UI のラグ&#x0a;• CPU 使用率の増加&#x0a;&#x0a;警告を抑制し、これらの影響を受け入れることを確認しますか？</system:String>
+    <system:String x:Key="BadModules.Confirmation.Text" xml:space="preserve">警告を表示しないように選択すると、MAA-Simu はハードウェアレンダリングではなくソフトウェアレンダリングを使用します。これにより以下の結果が生じます：&#x0a;&#x0a;• パフォーマンスの低下&#x0a;• UI のラグ&#x0a;• CPU 使用率の増加&#x0a;&#x0a;警告を抑制し、これらの影響を受け入れることを確認しますか？</system:String>
     <system:String x:Key="BadModules.UseSoftwareRendering">ソフトウェアレンダリングを使用</system:String>
     <system:String x:Key="BadModules.UseSoftwareRenderingTip">有効にすると、不良モジュールの警告が表示されなくなり、ソフトウェアレンダリングモードが使用されます。これにより、パフォーマンスの低下、UI のラグ、CPU 使用率の増加が発生します。チェックを外すとハードウェアレンダリングに戻ります。</system:String>
-    <system:String x:Key="BadModules.ResetWarning">ソフトウェアレンダリングモードが有効になりました。この設定を適用するには MAA を再起動してください。</system:String>
-    <system:String x:Key="BadModules.ResetSuccess">ハードウェアレンダリングモードに戻しました。変更を適用するには MAA を再起動する必要があります。今すぐ再起動しますか？</system:String>
+    <system:String x:Key="BadModules.ResetWarning">ソフトウェアレンダリングモードが有効になりました。この設定を適用するには MAA-Simu を再起動してください。</system:String>
+    <system:String x:Key="BadModules.ResetSuccess">ハードウェアレンダリングモードに戻しました。変更を適用するには MAA-Simu を再起動する必要があります。今すぐ再起動しますか？</system:String>
     <!--  !BadModules  -->
 
     <!--  ItemSelection  -->

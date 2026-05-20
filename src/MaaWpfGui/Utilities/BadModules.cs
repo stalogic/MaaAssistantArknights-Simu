@@ -98,7 +98,7 @@ internal class BadModules
 
         var page = new TaskDialogPage
         {
-            Caption = "MAA",
+            Caption = "MAA-Simu",
             Heading = LocalizationHelper.GetString("BadModules.Warning.Heading"),
             Text = sb.ToString(),
             Icon = TaskDialogIcon.Warning,
@@ -120,7 +120,7 @@ internal class BadModules
             // 弹出第二个确认对话框
             var confirmPage = new TaskDialogPage
             {
-                Caption = "MAA",
+                Caption = "MAA-Simu",
                 Heading = LocalizationHelper.GetString("BadModules.Confirmation.Heading"),
                 Text = LocalizationHelper.GetString("BadModules.Confirmation.Text"),
                 Icon = TaskDialogIcon.Warning,

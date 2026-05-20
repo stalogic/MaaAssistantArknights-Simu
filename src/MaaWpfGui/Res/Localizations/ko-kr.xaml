@@ -46,8 +46,8 @@
     <system:String x:Key="ExternalNotificationSendSuccess">전송 성공</system:String>
     <system:String x:Key="ExternalNotificationSendFail">전송 실패</system:String>
     <system:String x:Key="ExternalNotificationSendTest">테스트</system:String>
-    <system:String x:Key="ExternalNotificationSendTestTitle">MAA 외부 알림 테스트</system:String>
-    <system:String x:Key="ExternalNotificationSendTestContent">MAA 외부 알림 테스트입니다. 이 메시지가 표시되었다면 알림 전송이 성공한 것입니다!</system:String>
+    <system:String x:Key="ExternalNotificationSendTestTitle">MAA-Simu 외부 알림 테스트</system:String>
+    <system:String x:Key="ExternalNotificationSendTestContent">MAA-Simu 외부 알림 테스트입니다. 이 메시지가 표시되었다면 알림 전송이 성공한 것입니다!</system:String>
     <system:String x:Key="ExternalNotificationServerChanSendKey">Server Chan 전송 키</system:String>
     <system:String x:Key="ExternalNotificationBarkSendKey">Bark 전송 키</system:String>
     <system:String x:Key="ExternalNotificationBarkServer">Bark 서버</system:String>
@@ -315,7 +315,7 @@
     <system:String x:Key="ConfirmDeleteTaskMessage">정말로 {0} 번째 작업 "{1}"을 삭제하시겠습니까?</system:String>
     <system:String x:Key="TaskRenamed">작업 이름 변경: {0}</system:String>
     <system:String x:Key="TaskDeleted">작업 삭제: {0}</system:String>
-    <system:String x:Key="HotKeyShowGui">[단축키] MAA 보이기/숨기기</system:String>
+    <system:String x:Key="HotKeyShowGui">[단축키] MAA-Simu 보이기/숨기기</system:String>
     <system:String x:Key="HotKeyLinkStart">[단축키] Link 시작/중지</system:String>
     <system:String x:Key="HotKeyChangingTip">Backspace/Esc/Delete 키를 누르면 현재 값이 지워집니다</system:String>
     <system:String x:Key="LabelSequenceTip">드래그하여 작업 순서를 변경할 수 있습니다</system:String>
@@ -415,9 +415,9 @@
 
 위험: MAA를 드라이브 루트, 바탕 화면, 다운로드 폴더, 또는 다른 프로그램이나 개인 파일과 같은 계층에 풀어 두었다면 그 같은 계층의 항목도 함께 삭제되거나 이동될 수 있습니다.
 
-권장 구조: 예를 들면 다음과 같이 MAA 전용 폴더 안에 배치하세요.
+권장 구조: 예를 들면 다음과 같이 MAA-Simu 전용 폴더 안에 배치하세요.
 D:\
-`-- MAA\
+`-- MAA-Simu\
     |-- MAA.exe
     |-- config\
     `-- data\
@@ -446,7 +446,7 @@ D:\
     <system:String x:Key="AddConfiguration">추가</system:String>
     <system:String x:Key="AddConfigSuccess">구성 &lt; {0}&gt; 추가 완료</system:String>
     <system:String x:Key="ConfigExists">&lt;{0}&gt; 항목이 이미 존재합니다</system:String>
-    <system:String x:Key="LaunchOnSystemStartup">시스템 시작 시 MAA 실행</system:String>
+    <system:String x:Key="LaunchOnSystemStartup">시스템 시작 시 MAA-Simu 실행</system:String>
     <system:String x:Key="LaunchOnSystemStartupWarning" xml:space="preserve">
 이 기능은 시스템 시작 시 자동 실행을 위해 레지스트리를 수정합니다.
 MAA는 비설치형 응용 프로그램으로, 삭제 시 레지스트리 항목을 자동으로 정리하지 않습니다.
@@ -455,15 +455,15 @@ MAA는 비설치형 응용 프로그램으로, 삭제 시 레지스트리 항목
     <system:String x:Key="LaunchOnSystemStartupAdminPrompt">
         관리자 권한으로 실행 시 부팅 시 자동 실행이 지원되지 않습니다. MAA를 관리자 권한으로 장시간 실행하는 것은 권장하지 않습니다.\n필요할 경우 제어판 &gt; Windows 도구 &gt; 작업 스케줄러에서 커스텀 작업을 생성하세요. 트리거를 설정할 때 ｢가장 높은 권한으로 실행｣을 반드시 선택하세요.
     </system:String>
-    <system:String x:Key="RunTaskAfterLaunch">MAA 실행 후 작업 자동 시작</system:String>
-    <system:String x:Key="MinimizeAfterLaunch">MAA 실행 후 최소화</system:String>
+    <system:String x:Key="RunTaskAfterLaunch">MAA-Simu 실행 후 작업 자동 시작</system:String>
+    <system:String x:Key="MinimizeAfterLaunch">MAA-Simu 실행 후 최소화</system:String>
     <system:String x:Key="ClientType">클라이언트 종류</system:String>
     <system:String x:Key="StartGameLaunchClient">시작 시 클라이언트 실행</system:String>
     <system:String x:Key="AutoRestartOption">게임 연결이 끊어지면 자동으로 다시 연결</system:String>
     <system:String x:Key="UseWeeklySchedule">주간 일정 활성화</system:String>
     <system:String x:Key="UseWeeklyScheduleTip">여기서 요일은 게임 내 시간을 기준으로 하며, 실제 시간이 아닙니다. 예를 들어 게임이 4:00에 초기화되면 3:59는 여전히 전날로 계산됩니다.</system:String>
     <system:String x:Key="HelpUsWithOverseasServersTip">해외 서버의 현지화는 어려운 작업입니다! 저희를 도와주세요! 전문 지식이 없어도 됩니다</system:String>
-    <system:String x:Key="OpenEmulatorAfterLaunch">MAA 실행 후 에뮬레이터 실행</system:String>
+    <system:String x:Key="OpenEmulatorAfterLaunch">MAA-Simu 실행 후 에뮬레이터 실행</system:String>
     <system:String x:Key="WaitForEmulator">에뮬레이터 실행 대기 (초)</system:String>
     <system:String x:Key="WaitForEmulatorFinish">대기 시간 종료</system:String>
     <system:String x:Key="EmulatorPath">에뮬레이터 경로</system:String>
@@ -758,7 +758,7 @@ C:\\leidian\\LDPlayer9
     <system:String x:Key="Sleep">절전 모드</system:String>
     <system:String x:Key="Shutdown">시스템 종료</system:String>
     <system:String x:Key="Once">이번에만*</system:String>
-    <system:String x:Key="PostActionOnceTip" xml:space="preserve">체크 시 옵션 변경 사항이 저장되지 않으며 다음 번 MAA 시작 또는 {key=LinkStart} 이후에 복원됩니다
+    <system:String x:Key="PostActionOnceTip" xml:space="preserve">체크 시 옵션 변경 사항이 저장되지 않으며 다음 번 MAA-Simu 시작 또는 {key=LinkStart} 이후에 복원됩니다
 이 옵션의 체크를 해제하면 다른 옵션 상태가 정상적으로 저장됩니다
 다른 옵션을 마우스 오른쪽 버튼으로 클릭하면 이 옵션도 함께 체크/체크 해제됩니다</system:String>
     <system:String x:Key="IfNoOtherMaa">다른 MAA가 없는 경우</system:String>
@@ -884,7 +884,7 @@ C:\\leidian\\LDPlayer9
     <system:String x:Key="DepotRecognition">창고 인식</system:String>
     <system:String x:Key="Depot">{key=DepotRecognition}</system:String>
     <system:String x:Key="LastSyncTime">마지막 동기화 시간</system:String>
-    <system:String x:Key="DepotRecognitionTip">이 기능은 현재 테스트 중입니다. 내보내기 전 인식 결과가 맞는지 확인 후 사용하세요\n만약 오류가 있다면 MAA 경로 내 debug 폴더 안의 depot 폴더 전체를 압축해서 Github의 issue로 올려주세요</system:String>
+    <system:String x:Key="DepotRecognitionTip">이 기능은 현재 테스트 중입니다. 내보내기 전 인식 결과가 맞는지 확인 후 사용하세요\n만약 오류가 있다면 MAA-Simu 경로 내 debug 폴더 안의 depot 폴더 전체를 압축해서 Github의 issue로 올려주세요</system:String>
     <system:String x:Key="StartToDepotRecognition">인식 시작</system:String>
     <system:String x:Key="ExportToArkplanner">Arkplanner</system:String>
     <system:String x:Key="ExportToLolicon">Arkntools</system:String>
@@ -1349,7 +1349,7 @@ MAA Team의 개발 여력이 제한되어 있어 이 기능은 커뮤니티에�
     <system:String x:Key="AttachWindowInputPostMsg">PostMsg (효율적)</system:String>
     <!--  !AsstProxy  -->
     <!--  TrayIcon  -->
-    <system:String x:Key="ForceShow">MAA 강제 표시</system:String>
+    <system:String x:Key="ForceShow">MAA-Simu 강제 표시</system:String>
     <system:String x:Key="Restart">재개</system:String>
     <system:String x:Key="Exit">종료</system:String>
     <!--  !TrayIcon  -->
@@ -1403,7 +1403,7 @@ DEBUG 디렉토리에 저장된 이미지는 수량 제한이 있으며 초과 �
     <system:String x:Key="DrunkAndStaggering">어머, 박사님. 왜 그렇게 비틀비틀 걷고 계시나요?</system:String>
     <system:String x:Key="Hangover">다, 다음엔 적당히 마셔야지……</system:String>
     <system:String x:Key="HelloWorld">Hello World!</system:String>
-    <system:String x:Key="EasterEggsRules" xml:space="preserve">1. MAA 정식 버전에는 디버그 모드가 없습니다. 실행 중에 디버그 옵션이 표시되면 소프트웨어를 즉시 닫고 클릭하지 말고 가까운 MAA 개발자에게 문의하세요.\n
+    <system:String x:Key="EasterEggsRules" xml:space="preserve">1. MAA-Simu 정식 버전에는 디버그 모드가 없습니다. 실행 중에 디버그 옵션이 표시되면 소프트웨어를 즉시 닫고 클릭하지 말고 가까운 MAA-Simu 개발자에게 문의하세요.\n
 2. 기반시설 교대는 자동으로 진행됩니다. {key=Operator}가 72시간 이상 연속으로 작업하는 경우 수동으로 교대를 조정하고 시스템 시간이 올바른지 확인하세요.\n
 3. 공개 모집 태그는 변경되지 않습니다. 카운트다운이 끝나기 전에 태그가 변경된 것을 발견하면 모집을 계속하지 말고 MAA를 다시 시작한 후 작업하세요.\n
 4. MAA는 친구 요청을 보내지 않습니다. ｢MAA_System｣ 으로부터 친구 요청을 받으면 수락하지 말고 해당 계정을 삭제하세요.\n
@@ -1524,7 +1524,7 @@ DEBUG 디렉토리에 저장된 이미지는 수량 제한이 있으며 초과 �
     <system:String x:Key="ReclamationToolToCraftPlaceholder">형광봉</system:String>
     <!--  !Reclamation  -->
     <!--  Boot  -->
-    <system:String x:Key="UnknownDllDetected" xml:space="preserve">MAA 실행 폴더에서 알 수 없는 DLL 파일이 감지되었습니다. 이는 DLL 하이재킹을 일으켜 예상치 못한 결과를 초래할 수 있습니다.
+    <system:String x:Key="UnknownDllDetected" xml:space="preserve">MAA-Simu 실행 폴더에서 알 수 없는 DLL 파일이 감지되었습니다. 이는 DLL 하이재킹을 일으켜 예상치 못한 결과를 초래할 수 있습니다.
 MAA를 독립된 새 폴더에 압축 해제하거나, MAA에 속하지 않는 DLL 파일을 제거해 주세요.
     </system:String>
     <system:String x:Key="VC++NotInstalled" xml:space="preserve">MaaCore.dll 로드 실패. 가능한 원인:
@@ -1536,7 +1536,7 @@ MAA를 독립된 새 폴더에 압축 해제하거나, MAA에 속하지 않는 D
 "{key=Confirm}"을 클릭하면 VC++ 런타임 설치/업데이트를 시도하고 MAA를 종료합니다(다른 원인인 경우 무효). "{key=Cancel}"을 클릭하면 바로 종료합니다.
     </system:String>
     <system:String x:Key="MultiInstanceUnderSamePath" xml:space="preserve">동일한 경로에서는 하나의 인스턴스만 실행할 수 있습니다!
-여러 개의 MAA를 동시에 실행하려면 MAA 전체 폴더를 복사한 뒤, 같은 adb를 사용하되 연결 주소는 다르게 설정하여 서로 다른 경로에서 실행하세요.
+여러 개의 MAA를 동시에 실행하려면 MAA-Simu 전체 폴더를 복사한 뒤, 같은 adb를 사용하되 연결 주소는 다르게 설정하여 서로 다른 경로에서 실행하세요.
     </system:String>
     <system:String x:Key="SoftwareLocationWarning">현재 소프트웨어 위치에서는 데이터를 저장할 수 없어 설정이 손실되거나 실행 오류가 발생할 수 있습니다. 쓰기 가능한 폴더로 이동하세요. 시스템 보호 폴더(예: Program Files, System32 또는 Windows 폴더)에 두지 마세요.</system:String>
     <system:String x:Key="UnsupportedInstallLocationError" xml:space="preserve">MAA는 임시 디렉터리, 드라이브 루트, 또는 시스템/사용자 공용 디렉터리 같은 현재 설치 위치에서 직접 실행할 수 없습니다.
@@ -1544,7 +1544,7 @@ MAA를 독립된 새 폴더에 압축 해제하거나, MAA에 속하지 않는 D
 현재 설치 디렉터리: {0}
 감지된 비지원 위치: {1}
 
-이 위치들은 계층이 너무 높아 파일 덮어쓰기, 설정 저장 실패, 데이터 혼선을 일으킬 수 있습니다. D:\\MAA\\ 같은 전용 폴더로 옮긴 뒤 다시 실행해 주세요.</system:String>
+이 위치들은 계층이 너무 높아 파일 덮어쓰기, 설정 저장 실패, 데이터 혼선을 일으킬 수 있습니다. D:\\MAA-Simu\\ 같은 전용 폴더로 옮긴 뒤 다시 실행해 주세요.</system:String>
     <!--  !Boot  -->
     <!--  SimpleEncryptionHelper  -->
     <system:String x:Key="EncryptionError">암호화 또는 복호화에 실패했습니다. 관련 설정을 다시 구성해 주세요. 그렇지 않으면 암호화된 내용이 설정 파일에 그대로 저장됩니다.</system:String>
@@ -1592,11 +1592,11 @@ MAA를 독립된 새 폴더에 압축 해제하거나, MAA에 속하지 않는 D
 
     <system:String x:Key="Achievement.PeekScreen.Title">엿보기 구멍</system:String>
     <system:String x:Key="Achievement.PeekScreen.Description">그렇게 계속 쳐다보시면 부끄러운데요...</system:String>
-    <system:String x:Key="Achievement.PeekScreen.Conditions">MAA {key=Peep} 기능 1회 사용</system:String>
+    <system:String x:Key="Achievement.PeekScreen.Conditions">MAA-Simu {key=Peep} 기능 1회 사용</system:String>
 
     <system:String x:Key="Achievement.CongratulationError.Title">잠깐 타임!</system:String>
     <system:String x:Key="Achievement.CongratulationError.Description">어라? 방금 건 제 실수 아니에요. 아마도?</system:String>
-    <system:String x:Key="Achievement.CongratulationError.Conditions">MAA 오류 1회 발생</system:String>
+    <system:String x:Key="Achievement.CongratulationError.Conditions">MAA-Simu 오류 1회 발생</system:String>
 
     <system:String x:Key="Achievement.UnexpectedCrash.Title">와장창!</system:String>
     <system:String x:Key="Achievement.UnexpectedCrash.Description">으악! 뭔가 엄청난 걸 건드려버렸나 봐요...</system:String>
@@ -1625,7 +1625,7 @@ MAA를 독립된 새 폴더에 압축 해제하거나, MAA에 속하지 않는 D
 
     <system:String x:Key="Achievement.Rules.Title">서약 완료</system:String>
     <system:String x:Key="Achievement.Rules.Description">약속한 거예요? 제가 옆에서 지켜볼게요</system:String>
-    <system:String x:Key="Achievement.Rules.Conditions">MAA 이용 약관</system:String>
+    <system:String x:Key="Achievement.Rules.Conditions">MAA-Simu 이용 약관</system:String>
 
     <system:String x:Key="Achievement.VersionClick.Title">간지러워요</system:String>
     <system:String x:Key="Achievement.VersionClick.Description">거기 자꾸 눌러도 아무것도 안 나온다니까요?</system:String>
@@ -1709,7 +1709,7 @@ MAA를 독립된 새 폴더에 압축 해제하거나, MAA에 속하지 않는 D
 
     <system:String x:Key="Achievement.Pioneer3.Title">디버깅</system:String>
     <system:String x:Key="Achievement.Pioneer3.Description">여기까지 오다니 박사님도 보통은 아니네요</system:String>
-    <system:String x:Key="Achievement.Pioneer3.Conditions">DEBUG 버전의 MAA 사용</system:String>
+    <system:String x:Key="Achievement.Pioneer3.Conditions">DEBUG 버전의 MAA-Simu 사용</system:String>
 
     <system:String x:Key="Achievement.Irreplaceable.Title">인원 부족</system:String>
     <system:String x:Key="Achievement.Irreplaceable.Description">오퍼레이터가 부족한데 제가 대신 나가서 싸울까요?</system:String>
@@ -1741,7 +1741,7 @@ MAA를 독립된 새 폴더에 압축 해제하거나, MAA에 속하지 않는 D
 
     <system:String x:Key="Achievement.Lucky.Title">로또 사세요</system:String>
     <system:String x:Key="Achievement.Lucky.Description">이거 뜰 확률로 가챠를 돌렸어야 했는데...</system:String>
-    <system:String x:Key="Achievement.Lucky.Conditions">MAA 시작 시 매우! 작은! 확률로 발동</system:String>
+    <system:String x:Key="Achievement.Lucky.Conditions">MAA-Simu 시작 시 매우! 작은! 확률로 발동</system:String>
 
     <system:String x:Key="Achievement.CdnTorture.Title">서버가 절 싫어해요</system:String>
     <system:String x:Key="Achievement.CdnTorture.Description">GitHub 서버가 문을 안 열어줘요. 저 좀 들여보내줘요!</system:String>
@@ -1805,19 +1805,19 @@ MAA를 독립된 새 폴더에 압축 해제하거나, MAA에 속하지 않는 D
 
     <system:String x:Key="Achievement.UseDaily1.Title">작심삼일 극복</system:String>
     <system:String x:Key="Achievement.UseDaily1.Description">일주일 개근이네요? 보상은... 없어요!</system:String>
-    <system:String x:Key="Achievement.UseDaily1.Conditions">7일 연속 MAA 사용</system:String>
+    <system:String x:Key="Achievement.UseDaily1.Conditions">7일 연속 MAA-Simu 사용</system:String>
 
     <system:String x:Key="Achievement.UseDaily2.Title">한달 개근상</system:String>
     <system:String x:Key="Achievement.UseDaily2.Description">한 달 내내 저를 보러 오신거에요? 감동이네요</system:String>
-    <system:String x:Key="Achievement.UseDaily2.Conditions">30일 연속 MAA 사용</system:String>
+    <system:String x:Key="Achievement.UseDaily2.Conditions">30일 연속 MAA-Simu 사용</system:String>
 
     <system:String x:Key="Achievement.UseDaily3.Title">연중무휴</system:String>
     <system:String x:Key="Achievement.UseDaily3.Description">1년 365일 근무라니 휴가 좀 보내주세요!</system:String>
-    <system:String x:Key="Achievement.UseDaily3.Conditions">365일 연속 MAA 사용</system:String>
+    <system:String x:Key="Achievement.UseDaily3.Conditions">365일 연속 MAA-Simu 사용</system:String>
 
     <system:String x:Key="Achievement.AprilFools.Title">MAA에 심각한 오류가 발생했어요</system:String>
     <system:String x:Key="Achievement.AprilFools.Description">사실 거짓말이에요... 놀랐죠?</system:String>
-    <system:String x:Key="Achievement.AprilFools.Conditions">4월 1일에 MAA 실행하기</system:String>
+    <system:String x:Key="Achievement.AprilFools.Conditions">4월 1일에 MAA-Simu 실행하기</system:String>
 
     <system:String x:Key="Achievement.MidnightLaunch.Title">야행성</system:String>
     <system:String x:Key="Achievement.MidnightLaunch.Description">잠은 안자요? 저도 밤에는 피곤한데...</system:String>
@@ -1825,7 +1825,7 @@ MAA를 독립된 새 폴더에 압축 해제하거나, MAA에 속하지 않는 D
 
     <system:String x:Key="Achievement.LunarNewYear.Title">Happy New Year!</system:String>
     <system:String x:Key="Achievement.LunarNewYear.Description">새해 복 많이 받으세요! 세뱃돈은 오리지늄으로 받을게요</system:String>
-    <system:String x:Key="Achievement.LunarNewYear.Conditions">새해 기간에 MAA 열기</system:String>
+    <system:String x:Key="Achievement.LunarNewYear.Conditions">새해 기간에 MAA-Simu 열기</system:String>
 
     <system:String x:Key="Achievement.RoguelikeN04.Title">아직 멀었어</system:String>
     <system:String x:Key="Achievement.RoguelikeN04.Description">이 정도 난이도는 발로 해도 깬다구요</system:String>
@@ -1908,7 +1908,7 @@ MAA를 독립된 새 폴더에 압축 해제하거나, MAA에 속하지 않는 D
     <system:String x:Key="Achievement.NotFound404.Conditions">원격 프로토콜로 잘못된 작업 id 호출</system:String>
 
     <system:String x:Key="Achievement.Linguist.Title">언어학자</system:String>
-    <system:String x:Key="Achievement.Linguist.Description">MAA, 하지만 국제화.</system:String>
+    <system:String x:Key="Achievement.Linguist.Description">MAA-Simu, 하지만 국제화.</system:String>
     <system:String x:Key="Achievement.Linguist.Conditions">인터페이스 언어 전환 시도</system:String>
 
     <system:String x:Key="Achievement.StartupBoot.Title">부팅 시 시작</system:String>
@@ -1921,7 +1921,7 @@ MAA를 독립된 새 폴더에 압축 해제하거나, MAA에 속하지 않는 D
 
     <system:String x:Key="Achievement.Time325.Title">325</system:String>
     <system:String x:Key="Achievement.Time325.Description">이 숫자가 무슨 의미인지 아시죠?</system:String>
-    <system:String x:Key="Achievement.Time325.Conditions">3/13/23시 25분에 여전히 MAA 사용 중</system:String>
+    <system:String x:Key="Achievement.Time325.Conditions">3/13/23시 25분에 여전히 MAA-Simu 사용 중</system:String>
 
     <system:String x:Key="Achievement.PallasStarter.Title">팔라스 애호가</system:String>
     <system:String x:Key="Achievement.PallasStarter.Description">위대한 전사들이여, 나는 그대들 곁에서 함께 용맹히 싸우리라.</system:String>

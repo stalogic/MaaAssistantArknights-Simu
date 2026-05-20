@@ -32,7 +32,7 @@ public static class AutoStart
     private static readonly string _uniqueIdentifier = GetHashCode(_fileValue);
 
     private static readonly string _startupFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
-    private static readonly string _registryKeyName = $"MAA_{_uniqueIdentifier}";
+    private static readonly string _registryKeyName = $"MAA-Simu_{_uniqueIdentifier}";
     private static readonly string _startupShortcutPath = Path.Combine(_startupFolderPath, _registryKeyName + ".lnk");
 
     private const string CurrentUserRunKey = @"Software\Microsoft\Windows\CurrentVersion\Run";

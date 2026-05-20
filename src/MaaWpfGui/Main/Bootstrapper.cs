@@ -331,7 +331,7 @@ public class Bootstrapper : Bootstrapper<RootViewModel>
 
                 var time = File.GetLastWriteTime(crashFile);
                 bool foundDump = false;
-                foreach (var file in new DirectoryInfo(crashDumpsSource).EnumerateFiles("MAA.exe.*.dmp"))
+                foreach (var file in new DirectoryInfo(crashDumpsSource).EnumerateFiles("MAA-Simu.exe.*.dmp"))
                 {
                     if (file.LastWriteTime >= time.AddMinutes(-10) && file.LastWriteTime <= time.AddMinutes(10))
                     {
@@ -591,7 +591,7 @@ public class Bootstrapper : Bootstrapper<RootViewModel>
             {
                 MessageBoxHelper.Show(
                     LocalizationHelper.GetString("UnknownDllDetected") + "\n" + string.Join("\n", unknownDlls),
-                    "MAA",
+                    "MAA-Simu",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
                 _logger.Fatal("Unknown DLL(s) detected: {UnknownDlls}", string.Join(", ", unknownDlls));
@@ -604,7 +604,7 @@ public class Bootstrapper : Bootstrapper<RootViewModel>
         {
             var ret = MessageBoxHelper.Show(
                 LocalizationHelper.GetString("VC++NotInstalled"),
-                "MAA",
+                "MAA-Simu",
                 MessageBoxButton.OKCancel,
                 MessageBoxImage.Information,
                 ok: LocalizationHelper.GetString("Confirm"),
@@ -675,8 +675,8 @@ public class Bootstrapper : Bootstrapper<RootViewModel>
     private static bool HandleMultipleInstances()
     {
         string instanceKey = GetSingleInstanceKey();
-        string mutexName = "MAA_" + instanceKey;
-        string activationEventName = "MAA_SHOW_" + instanceKey;
+        string mutexName = "MAA-Simu_" + instanceKey;
+        string activationEventName = "MAA-Simu_SHOW_" + instanceKey;
         _mutex = new Mutex(true, mutexName, out var isOnlyInstance);
 
         try
@@ -692,7 +692,7 @@ public class Bootstrapper : Bootstrapper<RootViewModel>
                 return false;
             }
 
-            MessageBoxHelper.Show(LocalizationHelper.GetString("MultiInstanceUnderSamePath"), "MAA", MessageBoxButton.OK, MessageBoxImage.Warning);
+            MessageBoxHelper.Show(LocalizationHelper.GetString("MultiInstanceUnderSamePath"), "MAA-Simu", MessageBoxButton.OK, MessageBoxImage.Warning);
             return false;
         }
         catch (AbandonedMutexException)
@@ -704,7 +704,7 @@ public class Bootstrapper : Bootstrapper<RootViewModel>
         }
         catch (Exception e)
         {
-            MessageBoxHelper.Show(LocalizationHelper.GetString("MultiInstanceUnderSamePath") + e.Message, "MAA", MessageBoxButton.OK, MessageBoxImage.Warning);
+            MessageBoxHelper.Show(LocalizationHelper.GetString("MultiInstanceUnderSamePath") + e.Message, "MAA-Simu", MessageBoxButton.OK, MessageBoxImage.Warning);
             return false;
         }
     }

@@ -62,10 +62,10 @@
   <PropertyGroup>
     <ApplicationIcon>newlogo.ico</ApplicationIcon>
     <RootNamespace>MaaWpfGui</RootNamespace>
-    <AssemblyName>MAA</AssemblyName>
-    <ProductName>MAA</ProductName>
+    <AssemblyName>MAA-Simu</AssemblyName>
+    <ProductName>MAA-Simu</ProductName>
     <PublisherName>MistEO</PublisherName>
-    <SuiteName>MAA</SuiteName>
+    <SuiteName>MAA-Simu</SuiteName>
     <PackageProjectUrl>https://maa.plus/</PackageProjectUrl>
   </PropertyGroup>
 

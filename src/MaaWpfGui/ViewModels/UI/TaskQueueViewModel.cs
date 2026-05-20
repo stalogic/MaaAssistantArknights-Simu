@@ -522,7 +522,7 @@ public class TaskQueueViewModel : Screen
 
         bool HasOtherMaa()
         {
-            var processesCount = Process.GetProcessesByName("MAA").Length;
+            var processesCount = Process.GetProcessesByName("MAA-Simu").Length;
             _logger.Information("MAA processes count: {ProcessesCount}", processesCount);
             return processesCount > 1;
         }

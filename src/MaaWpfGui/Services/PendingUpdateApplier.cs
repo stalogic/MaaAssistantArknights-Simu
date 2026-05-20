@@ -446,7 +446,7 @@ internal static partial class PendingUpdateApplier
         bool showUpdaterConsole = ConfigurationHelper.GetGlobalValue(ConfigurationKeys.ShowUpdaterConsole, false);
         string planPath = Path.Combine(context.RootDir, $"maa-pending-update-{Guid.NewGuid():N}.json");
         string updaterExecutablePath = PrepareDelegatedUpdaterExecutable(context);
-        string relaunchExecutablePath = Path.Combine(context.RootDir, "MAA.exe");
+        string relaunchExecutablePath = Path.Combine(context.RootDir, "MAA-Simu.exe");
 
         File.WriteAllText(planPath, CreatePendingUpdatePlan(packageType, removeEntries, moveEntries));
 

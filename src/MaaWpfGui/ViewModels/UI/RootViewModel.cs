@@ -111,7 +111,7 @@ public class RootViewModel : Conductor<Screen>.Collection.OneActive
         ActiveItem = Instances.TaskQueueViewModel;
     }
 
-    private string _windowTitle = "MAA";
+    private string _windowTitle = "MAA-Simu";
 
     /// <summary>
     /// Gets or sets the window title.
