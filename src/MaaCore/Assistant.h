@@ -63,6 +63,8 @@ public:
     virtual std::vector<TaskId> get_tasks_list() const = 0;
 
     virtual bool back_to_home() const = 0;
+
+    virtual void set_ai_endpoint(const std::string& url) = 0;
 };
 
 namespace asst
@@ -118,6 +120,8 @@ public:
     virtual std::vector<TaskId> get_tasks_list() const override;
 
     virtual bool back_to_home() const override;
+
+    virtual void set_ai_endpoint(const std::string& url) override;
 
 public:
     std::shared_ptr<Controller> ctrler() const { return m_ctrler; }

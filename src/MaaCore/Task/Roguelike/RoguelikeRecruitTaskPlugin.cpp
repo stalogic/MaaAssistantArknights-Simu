@@ -1,5 +1,6 @@
 #include "RoguelikeRecruitTaskPlugin.h"
 
+#include "AiBridge/AiBridge.h"
 #include "Config/Miscellaneous/BattleDataConfig.h"
 #include "Config/TaskData.h"
 #include "Controller/Controller.h"
@@ -479,6 +480,38 @@ bool asst::RoguelikeRecruitTaskPlugin::_run()
         Log.trace(__FUNCTION__, "| Did not choose oper");
         return true;
     }
+
+    // === AI 决策 hook ===
+    AiBridge& ai = AiBridge::instance();
+    if (ai.is_enabled()) {
+        cv::Mat screenshot = ctrler()->get_image();
+        std::vector<RecruitCandidate> candidates;
+        for (const auto& info : recruit_list) {
+            candidates.push_back({ info.name, 0, 0, info.priority, info.is_alternate });
+        }
+
+        std::string chosen = ai.query_recruit_decision(
+            screenshot, candidates,
+            m_config->get_theme(),
+            m_config->status().floor,
+            m_config->status().hope,
+            m_config->status().hp);
+
+        if (!chosen.empty()) {
+            for (const auto& info : recruit_list) {
+                if (info.name == chosen) {
+                    Log.info(__FUNCTION__, "| AI chose:", chosen);
+                    bool is_rtl_ai = (info.page_index * 2) >= i;
+                    if (!is_rtl_ai && i != 0) {
+                        swipe_to_the_left_of_operlist(i + 1);
+                    }
+                    return recruit_appointed_char(chosen, is_rtl_ai);
+                }
+            }
+            Log.warn(__FUNCTION__, "| AI chose unknown oper:", chosen);
+        }
+    }
+    // === 原有优先级逻辑 ===
 
     // 选择优先级最高的干员
     auto selected_oper =

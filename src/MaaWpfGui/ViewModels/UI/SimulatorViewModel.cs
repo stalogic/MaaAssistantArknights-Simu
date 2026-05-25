@@ -12,15 +12,110 @@
 // </copyright>
 
 #nullable enable
+using System;
+using System.Windows;
 using MaaWpfGui.Helper;
+using Serilog;
 using Stylet;
 
 namespace MaaWpfGui.ViewModels.UI;
 
 public class SimulatorViewModel : Screen
 {
+    private readonly ILogger _logger = Log.ForContext<SimulatorViewModel>();
+
     public SimulatorViewModel()
     {
         DisplayName = LocalizationHelper.GetString("Simulator");
+    }
+
+    private string _aiEndpoint = "http://localhost:8765";
+
+    public string AiEndpoint
+    {
+        get => _aiEndpoint;
+        set => SetAndNotify(ref _aiEndpoint, value);
+    }
+
+    private bool _aiEnabled;
+
+    public bool AiEnabled
+    {
+        get => _aiEnabled;
+        set
+        {
+            SetAndNotify(ref _aiEnabled, value);
+            ApplyAiSetting();
+        }
+    }
+
+    private string _aiStatus = "Not connected";
+
+    public string AiStatus
+    {
+        get => _aiStatus;
+        set => SetAndNotify(ref _aiStatus, value);
+    }
+
+    public void CheckAiConnection()
+    {
+        _logger.Information("Simulator: CheckAiConnection called");
+
+        try
+        {
+            var proxy = Instances.AsstProxy;
+            if (proxy == null)
+            {
+                AiStatus = "Error: AsstProxy is null";
+                return;
+            }
+
+            bool connected = proxy.AsstIsAiConnected();
+            AiStatus = connected ? "Connected" : "Not connected";
+            _logger.Information("Simulator: AiStatus={Status}", AiStatus);
+
+            MessageBox.Show(
+                connected ? "AI server is reachable." : "Cannot reach AI server.\nCheck that server.py is running and the endpoint is correct.",
+                "AI Connection Test",
+                connected ? MessageBoxButton.OK : MessageBoxButton.OK,
+                connected ? MessageBoxImage.Information : MessageBoxImage.Warning);
+        }
+        catch (Exception ex)
+        {
+            AiStatus = "Error: " + ex.Message;
+            _logger.Error(ex, "Simulator: CheckAiConnection failed");
+            MessageBox.Show("Error: " + ex.Message, "AI Connection Test", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+
+    private void ApplyAiSetting()
+    {
+        try
+        {
+            var proxy = Instances.AsstProxy;
+            if (proxy == null)
+            {
+                _logger.Warning("Simulator: AsstProxy is null, cannot apply");
+                return;
+            }
+
+            if (_aiEnabled && !string.IsNullOrWhiteSpace(_aiEndpoint))
+            {
+                _logger.Information("Simulator: calling AsstSetAiEndpoint({Endpoint})", _aiEndpoint);
+                proxy.AsstSetAiEndpoint(_aiEndpoint);
+                _logger.Information("Simulator: AsstSetAiEndpoint returned");
+                AiStatus = "Configured";
+            }
+            else
+            {
+                proxy.AsstSetAiEndpoint(string.Empty);
+                AiStatus = "Disabled";
+            }
+        }
+        catch (Exception ex)
+        {
+            AiStatus = "Error: " + ex.Message;
+            _logger.Error(ex, "Simulator: ApplyAiSetting failed");
+        }
     }
 }

@@ -1,5 +1,6 @@
 #include "Assistant.h"
 
+#include "AiBridge/AiBridge.h"
 #include "MaaUtils/NoWarningCV.hpp"
 #include <meojson/json.hpp>
 #include <ranges>
@@ -746,4 +747,9 @@ bool asst::Assistant::inited() const noexcept
 bool asst::Assistant::back_to_home() const
 {
     return m_ctrler->back_to_home();
+}
+
+void asst::Assistant::set_ai_endpoint(const std::string& url)
+{
+    AiBridge::instance().set_endpoint(url);
 }

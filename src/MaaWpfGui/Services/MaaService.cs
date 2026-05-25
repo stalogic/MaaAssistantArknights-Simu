@@ -98,6 +98,13 @@ internal static partial class MaaService
 
     [LibraryImport("MaaCore.dll")]
     internal static unsafe partial void AsstSetConnectionExtras(byte* name, byte* extras);
+
+    [LibraryImport("MaaCore.dll")]
+    internal static unsafe partial void AsstSetAiEndpoint(AsstHandle handle, [MarshalAs(UnmanagedType.LPUTF8Str)] string url);
+
+    [LibraryImport("MaaCore.dll")]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    internal static partial bool AsstIsAiConnected(AsstHandle handle);
 }
 #pragma warning restore SA1601 // Partial elements should be documented
 

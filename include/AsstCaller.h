@@ -130,6 +130,9 @@ extern "C"
     AsstSize ASSTAPI AsstGetTasksList(AsstHandle handle, AsstTaskId* buff, AsstSize buff_size);
     AsstSize ASSTAPI AsstGetNullSize();
 
+    void ASSTAPI AsstSetAiEndpoint(AsstHandle handle, const char* url);
+    AsstBool ASSTAPI AsstIsAiConnected(AsstHandle handle);
+
     ASSTAPI_PORT const char* ASST_CALL AsstGetVersion();
     void ASSTAPI AsstLog(const char* level, const char* message);
 

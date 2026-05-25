@@ -2927,6 +2927,16 @@ public class AsstProxy
         return MaaService.AsstBackToHome(_handle);
     }
 
+    public void AsstSetAiEndpoint(string url)
+    {
+        MaaService.AsstSetAiEndpoint(_handle, url);
+    }
+
+    public bool AsstIsAiConnected()
+    {
+        return MaaService.AsstIsAiConnected(_handle);
+    }
+
     /// <summary>
     /// 仓库识别。
     /// </summary>

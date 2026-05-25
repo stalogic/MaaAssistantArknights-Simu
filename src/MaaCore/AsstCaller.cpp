@@ -1,5 +1,6 @@
 #include "AsstCaller.h"
 
+#include "AiBridge/AiBridge.h"
 #include <cstring>
 #include <filesystem>
 #include <iostream>
@@ -310,6 +311,20 @@ AsstSize AsstGetTasksList(AsstHandle handle, AsstTaskId* buff, AsstSize buff_siz
     }
     memcpy(buff, tasks.data(), data_size * sizeof(decltype(tasks)::value_type));
     return data_size;
+}
+
+void AsstSetAiEndpoint(AsstHandle /*handle*/, const char* url)
+{
+    Log.info(__FUNCTION__, "called, url:", url);
+    asst::AiBridge::instance().set_endpoint(url ? url : "");
+}
+
+AsstBool AsstIsAiConnected(AsstHandle /*handle*/)
+{
+    Log.info(__FUNCTION__, "checking health...");
+    bool ok = asst::AiBridge::instance().check_health();
+    Log.info(__FUNCTION__, "health check:", ok ? "ok" : "FAILED");
+    return ok ? AsstTrue : AsstFalse;
 }
 
 AsstSize AsstGetNullSize()
