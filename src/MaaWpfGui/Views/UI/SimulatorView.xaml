@@ -7,80 +7,112 @@
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:s="https://github.com/canton7/Stylet"
+    xmlns:taskQueue="clr-namespace:MaaWpfGui.Views.UserControl.TaskQueue"
     xmlns:ui_vms="clr-namespace:MaaWpfGui.ViewModels.UI"
     d:Background="White"
     d:DataContext="{d:DesignInstance {x:Type ui_vms:SimulatorViewModel}}"
-    d:DesignHeight="600"
-    d:DesignWidth="800"
+    d:DesignHeight="800"
+    d:DesignWidth="900"
     mc:Ignorable="d">
-    <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <hc:ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-        <!-- AI Control Panel -->
-        <Border
-            Grid.Row="0"
-            Padding="15"
-            Background="{DynamicResource RegionBrushOpacity25}"
-            BorderBrush="{DynamicResource BorderBrush}"
-            BorderThickness="1"
-            CornerRadius="4">
-            <StackPanel>
-                <TextBlock
-                    Margin="0,0,0,10"
-                    FontSize="16"
-                    FontWeight="Bold"
-                    Text="AI Control Panel" />
-
-                <!-- Enable Toggle -->
-                <DockPanel Margin="0,5">
+            <!-- AI Control Panel -->
+            <Border
+                Grid.Row="0"
+                Margin="0,0,0,10"
+                Padding="15"
+                Background="{DynamicResource RegionBrushOpacity25}"
+                BorderBrush="{DynamicResource BorderBrush}"
+                BorderThickness="1"
+                CornerRadius="4">
+                <StackPanel>
                     <TextBlock
-                        Width="120"
-                        VerticalAlignment="Center"
-                        Text="AI Enable:" />
-                    <CheckBox IsChecked="{Binding AiEnabled}" Content="Enable AI Connection" />
-                </DockPanel>
+                        Margin="0,0,0,10"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Text="AI Control Panel" />
+                    <DockPanel Margin="0,5">
+                        <TextBlock Width="140" VerticalAlignment="Center" Text="AI Enable:" />
+                        <CheckBox IsChecked="{Binding AiEnabled}" Content="Enable AI Connection" />
+                    </DockPanel>
+                    <DockPanel Margin="0,5">
+                        <TextBlock Width="140" VerticalAlignment="Center" Text="AI Endpoint:" />
+                        <TextBox
+                            Text="{Binding AiEndpoint, UpdateSourceTrigger=PropertyChanged}"
+                            IsEnabled="{Binding AiEnabled}"
+                            hc:InfoElement.Placeholder="http://localhost:8765" />
+                    </DockPanel>
+                    <DockPanel Margin="0,5">
+                        <TextBlock Width="140" VerticalAlignment="Center" Text="Status:" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" Text="{Binding AiStatus}" />
+                            <Button
+                                Margin="10,0,0,0"
+                                Padding="5,2"
+                                Command="{s:Action CheckAiConnection}"
+                                Content="Check" />
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
 
-                <!-- Endpoint -->
-                <DockPanel Margin="0,5">
+            <!-- AI Decision Switches -->
+            <Border
+                Grid.Row="1"
+                Margin="0,0,0,10"
+                Padding="15"
+                Background="{DynamicResource RegionBrushOpacity25}"
+                BorderBrush="{DynamicResource BorderBrush}"
+                BorderThickness="1"
+                CornerRadius="4">
+                <StackPanel>
                     <TextBlock
-                        Width="120"
-                        VerticalAlignment="Center"
-                        Text="AI Endpoint:" />
-                    <TextBox
-                        Text="{Binding AiEndpoint, UpdateSourceTrigger=PropertyChanged}"
-                        IsEnabled="{Binding AiEnabled}"
-                        hc:InfoElement.Placeholder="http://localhost:8765" />
-                </DockPanel>
-
-                <!-- Status -->
-                <DockPanel Margin="0,5">
+                        Margin="0,0,0,10"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Text="AI Decision Switches" />
                     <TextBlock
-                        Width="120"
-                        VerticalAlignment="Center"
-                        Text="Status:" />
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock VerticalAlignment="Center" Text="{Binding AiStatus}" />
-                        <Button
-                            Margin="10,0,0,0"
-                            Padding="5,2"
-                            Command="{s:Action CheckAiConnection}"
-                            Content="Check" />
-                    </StackPanel>
-                </DockPanel>
-            </StackPanel>
-        </Border>
+                        Margin="0,0,0,8"
+                        Foreground="{DynamicResource GrayBrush}"
+                        Text="Enable AI for specific decision points. Disabled = use MAA built-in rules."
+                        TextWrapping="Wrap" />
+                    <CheckBox Margin="0,3" IsChecked="{Binding AiRecruit}" Content="Recruit (招募)" />
+                    <CheckBox Margin="0,3" IsChecked="{Binding AiBattle}" Content="Battle (战斗)" />
+                    <CheckBox Margin="0,3" IsChecked="{Binding AiShopping}" Content="Shopping (商店)" />
+                    <CheckBox Margin="0,3" IsChecked="{Binding AiEncounter}" Content="Encounter (遭遇)" />
+                    <CheckBox Margin="0,3" IsChecked="{Binding AiRouting}" Content="Routing (路线)" />
+                </StackPanel>
+            </Border>
 
-        <!-- Placeholder for future content -->
-        <TextBlock
-            Grid.Row="2"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="24"
-            Foreground="{DynamicResource GrayBrush}"
-            Text="Simulator" />
-    </Grid>
+            <!-- Roguelike Settings -->
+            <Border
+                Grid.Row="2"
+                Margin="0,0,0,10"
+                Padding="15"
+                Background="{DynamicResource RegionBrushOpacity25}"
+                BorderBrush="{DynamicResource BorderBrush}"
+                BorderThickness="1"
+                CornerRadius="4">
+                <taskQueue:RoguelikeSettingsUserControl DataContext="{x:Static ui_vms:TaskQueueViewModel.RoguelikeTask}" />
+            </Border>
+
+            <!-- Start Button -->
+            <Button
+                Grid.Row="3"
+                Width="200"
+                Height="40"
+                Margin="0,10"
+                HorizontalAlignment="Center"
+                Command="{s:Action StartRoguelike}"
+                Content="Start Roguelike"
+                FontSize="16" />
+        </Grid>
+    </hc:ScrollViewer>
 </UserControl>

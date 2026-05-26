@@ -192,6 +192,12 @@ bool asst::RoguelikeTask::set_params(const json::value& params)
         "StageTraderRefreshWithDice",
         params.get("refresh_trader_with_dice", false) ? INT_MAX : 0);
 
+    m_config_ptr->set_ai_recruit(params.get("ai_recruit", false));
+    m_config_ptr->set_ai_battle(params.get("ai_battle", false));
+    m_config_ptr->set_ai_shopping(params.get("ai_shopping", false));
+    m_config_ptr->set_ai_encounter(params.get("ai_encounter", false));
+    m_config_ptr->set_ai_routing(params.get("ai_routing", false));
+
     for (const auto& plugin : m_roguelike_task_ptr->get_plugins()) {
         if (const auto& p_ptr = std::dynamic_pointer_cast<AbstractRoguelikeTaskPlugin>(plugin); p_ptr != nullptr) {
             p_ptr->set_enable(p_ptr->load_params(params));

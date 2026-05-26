@@ -483,7 +483,7 @@ bool asst::RoguelikeRecruitTaskPlugin::_run()
 
     // === AI 决策 hook ===
     AiBridge& ai = AiBridge::instance();
-    if (ai.is_enabled()) {
+    if (m_config->get_ai_recruit() && ai.is_enabled()) {
         cv::Mat screenshot = ctrler()->get_image();
         std::vector<RecruitCandidate> candidates;
         for (const auto& info : recruit_list) {

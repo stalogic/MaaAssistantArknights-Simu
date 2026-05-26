@@ -147,6 +147,18 @@ public:
 
     int get_find_playTime_target() const { return m_find_playTime_target; }
 
+    // ------------------ AI 决策开关 ------------------
+    void set_ai_recruit(bool v) { m_ai_recruit = v; }
+    bool get_ai_recruit() const { return m_ai_recruit; }
+    void set_ai_battle(bool v) { m_ai_battle = v; }
+    bool get_ai_battle() const { return m_ai_battle; }
+    void set_ai_shopping(bool v) { m_ai_shopping = v; }
+    bool get_ai_shopping() const { return m_ai_shopping; }
+    void set_ai_encounter(bool v) { m_ai_encounter = v; }
+    bool get_ai_encounter() const { return m_ai_encounter; }
+    void set_ai_routing(bool v) { m_ai_routing = v; }
+    bool get_ai_routing() const { return m_ai_routing; }
+
 private:
     std::string m_theme;                       // 主题
     RoguelikeMode m_mode = RoguelikeMode::Exp; // 模式
@@ -167,6 +179,11 @@ private:
 
     // ------------------ 刷常乐节点模式 ------------------
     int m_find_playTime_target = 0; // 目标常乐节点子类型 (1=令, 2=黍, 3=年)
+    bool m_ai_recruit = false;
+    bool m_ai_battle = false;
+    bool m_ai_shopping = false;
+    bool m_ai_encounter = false;
+    bool m_ai_routing = false;
 
 private:
     // =========================== 萨米主题专用参数 ===========================
