@@ -159,6 +159,12 @@ public:
     void set_ai_routing(bool v) { m_ai_routing = v; }
     bool get_ai_routing() const { return m_ai_routing; }
 
+    // ------------------ 轨迹记录 ------------------
+    void set_trajectory_logging(bool v) { m_trajectory_logging = v; }
+    bool get_trajectory_logging() const { return m_trajectory_logging; }
+    void set_trajectory_dir(std::string dir) { m_trajectory_dir = std::move(dir); }
+    const std::string& get_trajectory_dir() const { return m_trajectory_dir; }
+
 private:
     std::string m_theme;                       // 主题
     RoguelikeMode m_mode = RoguelikeMode::Exp; // 模式
@@ -184,6 +190,8 @@ private:
     bool m_ai_shopping = false;
     bool m_ai_encounter = false;
     bool m_ai_routing = false;
+    bool m_trajectory_logging = false;
+    std::string m_trajectory_dir;
 
 private:
     // =========================== 萨米主题专用参数 ===========================

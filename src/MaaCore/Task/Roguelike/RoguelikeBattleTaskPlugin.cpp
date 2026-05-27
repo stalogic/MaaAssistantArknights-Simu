@@ -1,5 +1,6 @@
 #include "RoguelikeBattleTaskPlugin.h"
 
+#include "AiBridge/TrajectoryLogger.h"
 #include <chrono>
 #include <future>
 #include <ranges>
@@ -7,6 +8,7 @@
 
 #include "Config/GeneralConfig.h"
 #include "Config/Miscellaneous/BattleDataConfig.h"
+#include <meojson/json.hpp>
 #include "Config/Miscellaneous/TilePack.h"
 #include "Config/Roguelike/RoguelikeCopilotConfig.h"
 #include "Config/Roguelike/RoguelikeRecruitConfig.h"
@@ -440,6 +442,21 @@ bool asst::RoguelikeBattleTaskPlugin::do_best_deploy()
                 return true;
             }
             deploy_oper(deploy_plan.oper_name, deploy_plan.placed, deploy_plan.direction);
+            TrajectoryLogger::instance().log_generic(
+                ctrler()->get_image(), "battle",
+                json::object{
+                    { "oper_name", deploy_plan.oper_name },
+                    { "x", deploy_plan.placed.x },
+                    { "y", deploy_plan.placed.y },
+                    { "direction", static_cast<int>(deploy_plan.direction) },
+                    { "rank", deploy_plan.rank },
+                }.to_string(),
+                "deploy " + deploy_plan.oper_name + " x=" + std::to_string(deploy_plan.placed.x) + " y=" + std::to_string(deploy_plan.placed.y) + " dir=" + std::to_string(static_cast<int>(deploy_plan.direction)),
+                false, "",
+                json::object{
+                    { "theme", m_config->get_theme() },
+                    { "floor", m_config->status().floor },
+                }.to_string());
             // 防止滑动丢失(有些物体比如鸟笼没有方向),点一下右下角费用那里
             asst::BattleHelper::cancel_oper_selection();
             // 开始计时

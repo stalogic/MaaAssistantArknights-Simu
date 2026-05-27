@@ -1,5 +1,6 @@
 #include "RoguelikeStageEncounterTaskPlugin.h"
 
+#include "AiBridge/TrajectoryLogger.h"
 #include "Config/Roguelike/RoguelikeStageEncounterConfig.h"
 #include "Config/TaskData.h"
 #include "Controller/Controller.h"
@@ -7,6 +8,7 @@
 #include "MaaUtils/NoWarningCV.hpp"
 #include "Task/ProcessTask.h"
 #include "Task/Roguelike/Map/RoguelikeBoskyPassageMap.h"
+#include <meojson/json.hpp>
 #include "Utils/DebugImageHelper.hpp"
 #include "Utils/Logger.hpp"
 #include "Vision/Matcher.h"
@@ -221,6 +223,14 @@ std::optional<std::string> asst::RoguelikeStageEncounterTaskPlugin::handle_singl
 
     for (int j = 0; j < 2; ++j) {
         ProcessTask(*this, { click_option_task_name(choose_option, event.option_num) }).run();
+        if (j == 0) {
+            TrajectoryLogger::instance().log_generic(
+                ctrler()->get_image(), "encounter",
+                json::object{ { "event", event.name }, { "choice", static_cast<int>(choose_option) }, { "option_count", static_cast<int>(event.option_num) } }.to_string(),
+                "encounter " + event.name + " choice=" + std::to_string(choose_option),
+                false, "",
+                json::object{ { "theme", m_config->get_theme() }, { "floor", m_config->status().floor } }.to_string());
+        }
         sleep(300);
     }
 

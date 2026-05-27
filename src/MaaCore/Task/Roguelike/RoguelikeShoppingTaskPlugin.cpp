@@ -1,6 +1,8 @@
 #include "RoguelikeShoppingTaskPlugin.h"
 
+#include "AiBridge/TrajectoryLogger.h"
 #include <array>
+#include <meojson/json.hpp>
 
 #include "Config/Miscellaneous/BattleDataConfig.h"
 #include "Config/Roguelike/RoguelikeShoppingConfig.h"
@@ -208,6 +210,12 @@ bool asst::RoguelikeShoppingTaskPlugin::buy_once()
         // or 取消等等的逻辑
         Log.info("Ready to buy", goods.name);
         ctrler()->click(find_it->rect);
+        TrajectoryLogger::instance().log_generic(
+            ctrler()->get_image(), "shopping",
+            json::object{ { "goods", goods.name } }.to_string(),
+            "buy " + goods.name,
+            false, "",
+            json::object{ { "theme", m_config->get_theme() }, { "floor", m_config->status().floor } }.to_string());
         // bought = true;
         if (m_config->get_theme() == RoguelikeTheme::Sami) {
             auto iter = std::find(all_foldartal.begin(), all_foldartal.end(), goods.name);

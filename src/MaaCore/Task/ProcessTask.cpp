@@ -1,5 +1,6 @@
 #include "ProcessTask.h"
 
+#include "AiBridge/TrajectoryLogger.h"
 #include <chrono>
 #include <random>
 #include <unordered_set>
@@ -193,6 +194,21 @@ ProcessTask::HitDetail ProcessTask::find_first(const TaskList& list) /* const, e
 ProcessTask::NodeStatus ProcessTask::run_action(const HitDetail& hits) const
 {
     const auto& task = hits.task_ptr;
+    // Low-level action logging for trajectory
+    if (task->action != ProcessTaskAction::DoNothing && task->action != ProcessTaskAction::Stop) {
+        auto& logger = asst::TrajectoryLogger::instance();
+        if (logger.is_enabled()) {
+            std::string action_type = enum_to_string(task->action);
+            logger.log_generic(
+                ctrler()->get_image(), "action",
+                json::object{
+                    { "type", action_type },
+                    { "task", task->name },
+                }.to_string(),
+                action_type + " " + task->name,
+                false, "", json::object{}.to_string());
+        }
+    }
     switch (task->action) {
     case ProcessTaskAction::ClickRect:
         exec_click_task(task->specific_rect);

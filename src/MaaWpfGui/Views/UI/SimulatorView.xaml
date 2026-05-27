@@ -20,10 +20,9 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <!-- AI Control Panel -->
+            <!-- AI Control Panel (all controls merged) -->
             <Border
                 Grid.Row="0"
                 Margin="0,0,0,10"
@@ -38,6 +37,8 @@
                         FontSize="16"
                         FontWeight="Bold"
                         Text="AI Control Panel" />
+
+                    <!-- Connection -->
                     <DockPanel Margin="0,5">
                         <TextBlock Width="140" VerticalAlignment="Center" Text="AI Enable:" />
                         <CheckBox IsChecked="{Binding AiEnabled}" Content="Enable AI Connection" />
@@ -60,40 +61,41 @@
                                 Content="Check" />
                         </StackPanel>
                     </DockPanel>
-                </StackPanel>
-            </Border>
 
-            <!-- AI Decision Switches -->
-            <Border
-                Grid.Row="1"
-                Margin="0,0,0,10"
-                Padding="15"
-                Background="{DynamicResource RegionBrushOpacity25}"
-                BorderBrush="{DynamicResource BorderBrush}"
-                BorderThickness="1"
-                CornerRadius="4">
-                <StackPanel>
+                    <Separator Margin="0,10" />
+
+                    <!-- Trajectory Logging -->
+                    <DockPanel Margin="0,5">
+                        <TextBlock Width="140" VerticalAlignment="Center" Text="Record Trajectory:" />
+                        <CheckBox IsChecked="{Binding TrajectoryLogging}" Content="Record trajectory" />
+                    </DockPanel>
+                    <DockPanel Margin="0,5">
+                        <TextBlock Width="140" VerticalAlignment="Center" Text="Log Directory:" />
+                        <TextBox
+                            Text="{Binding TrajectoryDir, UpdateSourceTrigger=PropertyChanged}"
+                            hc:InfoElement.Placeholder="debug/trajectory" />
+                    </DockPanel>
+
+                    <Separator Margin="0,10" />
+
+                    <!-- AI Decision Switches -->
                     <TextBlock
-                        Margin="0,0,0,10"
-                        FontSize="16"
+                        Margin="0,0,0,5"
                         FontWeight="Bold"
-                        Text="AI Decision Switches" />
-                    <TextBlock
-                        Margin="0,0,0,8"
-                        Foreground="{DynamicResource GrayBrush}"
-                        Text="Enable AI for specific decision points. Disabled = use MAA built-in rules."
-                        TextWrapping="Wrap" />
-                    <CheckBox Margin="0,3" IsChecked="{Binding AiRecruit}" Content="Recruit (招募)" />
-                    <CheckBox Margin="0,3" IsChecked="{Binding AiBattle}" Content="Battle (战斗)" />
-                    <CheckBox Margin="0,3" IsChecked="{Binding AiShopping}" Content="Shopping (商店)" />
-                    <CheckBox Margin="0,3" IsChecked="{Binding AiEncounter}" Content="Encounter (遭遇)" />
-                    <CheckBox Margin="0,3" IsChecked="{Binding AiRouting}" Content="Routing (路线)" />
+                        Text="AI Decisions:" />
+                    <WrapPanel>
+                        <CheckBox Margin="0,3,10,3" IsChecked="{Binding AiRecruit}" Content="Recruit (招募)" />
+                        <CheckBox Margin="0,3,10,3" IsChecked="{Binding AiBattle}" Content="Battle (战斗)" />
+                        <CheckBox Margin="0,3,10,3" IsChecked="{Binding AiShopping}" Content="Shopping (商店)" />
+                        <CheckBox Margin="0,3,10,3" IsChecked="{Binding AiEncounter}" Content="Encounter (遭遇)" />
+                        <CheckBox Margin="0,3,10,3" IsChecked="{Binding AiRouting}" Content="Routing (路线)" />
+                    </WrapPanel>
                 </StackPanel>
             </Border>
 
             <!-- Roguelike Settings -->
             <Border
-                Grid.Row="2"
+                Grid.Row="1"
                 Margin="0,0,0,10"
                 Padding="15"
                 Background="{DynamicResource RegionBrushOpacity25}"
@@ -105,7 +107,7 @@
 
             <!-- Start Button -->
             <Button
-                Grid.Row="3"
+                Grid.Row="2"
                 Width="200"
                 Height="40"
                 Margin="0,10"

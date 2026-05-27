@@ -197,6 +197,8 @@ bool asst::RoguelikeTask::set_params(const json::value& params)
     m_config_ptr->set_ai_shopping(params.get("ai_shopping", false));
     m_config_ptr->set_ai_encounter(params.get("ai_encounter", false));
     m_config_ptr->set_ai_routing(params.get("ai_routing", false));
+    m_config_ptr->set_trajectory_logging(params.get("trajectory_logging", false));
+    m_config_ptr->set_trajectory_dir(params.get("trajectory_dir", std::string()));
 
     for (const auto& plugin : m_roguelike_task_ptr->get_plugins()) {
         if (const auto& p_ptr = std::dynamic_pointer_cast<AbstractRoguelikeTaskPlugin>(plugin); p_ptr != nullptr) {

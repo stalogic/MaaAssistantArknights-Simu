@@ -1,5 +1,6 @@
 #include "RoguelikeResetTaskPlugin.h"
 
+#include "AiBridge/TrajectoryLogger.h"
 #include "Utils/Logger.hpp"
 
 bool asst::RoguelikeResetTaskPlugin::verify(AsstMsg msg, const json::value& details) const
@@ -28,6 +29,14 @@ bool asst::RoguelikeResetTaskPlugin::verify(AsstMsg msg, const json::value& deta
 
 bool asst::RoguelikeResetTaskPlugin::_run()
 {
+    auto& logger = TrajectoryLogger::instance();
+    logger.set_enabled(m_config->get_trajectory_logging());
+    if (logger.is_enabled()) {
+        std::string dir = m_config->get_trajectory_dir();
+        if (dir.empty()) dir = R"(E:\MAA-Simu-Debug\trajectory)";
+        logger.start_session(dir, m_config->get_theme());
+    }
+
     for (const auto& plugin : m_task_ptr->get_plugins()) {
         if (auto ptr = std::dynamic_pointer_cast<AbstractRoguelikeTaskPlugin>(plugin)) {
             ptr->reset_in_run_variables();

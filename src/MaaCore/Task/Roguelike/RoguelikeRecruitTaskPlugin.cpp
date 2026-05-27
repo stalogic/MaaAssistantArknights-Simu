@@ -1,7 +1,9 @@
 #include "RoguelikeRecruitTaskPlugin.h"
 
 #include "AiBridge/AiBridge.h"
+#include "AiBridge/TrajectoryLogger.h"
 #include "Config/Miscellaneous/BattleDataConfig.h"
+#include <meojson/json.hpp>
 #include "Config/TaskData.h"
 #include "Controller/Controller.h"
 #include "Task/ProcessTask.h"
@@ -481,14 +483,30 @@ bool asst::RoguelikeRecruitTaskPlugin::_run()
         return true;
     }
 
+    // === 构建候选人列表（AI 和 日志都需要） ===
+    std::vector<RecruitCandidate> ai_candidates;
+    for (const auto& info : recruit_list) {
+        ai_candidates.push_back({ info.name, 0, 0, info.priority, info.is_alternate });
+    }
+
+    // === 构建 extra_params ===
+    json::value extra = json::object{
+        { "theme", m_config->get_theme() },
+        { "mode", static_cast<int>(m_config->get_mode()) },
+        { "floor", m_config->status().floor },
+        { "hope", m_config->status().hope },
+        { "hp", m_config->status().hp },
+        { "difficulty", m_config->get_difficulty() },
+        { "squad", m_config->get_squad() },
+        { "formation_limit", m_config->status().formation_upper_limit },
+    };
+    std::string extra_str = extra.to_string();
+
     // === AI 决策 hook ===
     AiBridge& ai = AiBridge::instance();
     if (m_config->get_ai_recruit() && ai.is_enabled()) {
         cv::Mat screenshot = ctrler()->get_image();
-        std::vector<RecruitCandidate> candidates;
-        for (const auto& info : recruit_list) {
-            candidates.push_back({ info.name, 0, 0, info.priority, info.is_alternate });
-        }
+        std::vector<RecruitCandidate> candidates = ai_candidates;
 
         std::string chosen = ai.query_recruit_decision(
             screenshot, candidates,
@@ -501,6 +519,10 @@ bool asst::RoguelikeRecruitTaskPlugin::_run()
             for (const auto& info : recruit_list) {
                 if (info.name == chosen) {
                     Log.info(__FUNCTION__, "| AI chose:", chosen);
+                    TrajectoryLogger::instance().log_recruit(
+                        screenshot, ai_candidates, chosen,
+                        "recruit " + chosen,
+                        true, chosen, extra_str);
                     bool is_rtl_ai = (info.page_index * 2) >= i;
                     if (!is_rtl_ai && i != 0) {
                         swipe_to_the_left_of_operlist(i + 1);
@@ -509,6 +531,10 @@ bool asst::RoguelikeRecruitTaskPlugin::_run()
                 }
             }
             Log.warn(__FUNCTION__, "| AI chose unknown oper:", chosen);
+            TrajectoryLogger::instance().log_recruit(
+                screenshot, ai_candidates, "",
+                "recruit (unknown: " + chosen + ")",
+                true, chosen, extra_str);
         }
     }
     // === 原有优先级逻辑 ===
@@ -522,6 +548,13 @@ bool asst::RoguelikeRecruitTaskPlugin::_run()
     }
 
     std::string char_name = selected_oper->name;
+
+    // 轨迹记录：默认规则决策
+    TrajectoryLogger::instance().log_recruit(
+        ctrler()->get_image(), ai_candidates, char_name,
+        "recruit " + char_name,
+        false, "", extra_str);
+
     Log.trace(
         __FUNCTION__,
         "| Top priority oper:",

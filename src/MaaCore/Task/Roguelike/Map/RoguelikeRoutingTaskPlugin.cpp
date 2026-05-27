@@ -1,6 +1,8 @@
 #include "RoguelikeRoutingTaskPlugin.h"
 
+#include "AiBridge/TrajectoryLogger.h"
 #include <limits>
+#include <meojson/json.hpp>
 #include <numeric>
 
 #include "Config/TaskData.h"
@@ -166,6 +168,7 @@ bool asst::RoguelikeRoutingTaskPlugin::_run()
                 const int next_node_y = m_map.get_node_y(next_node);
                 Point next_node_center = Point(next_node_x + m_node_width / 2, next_node_y + m_node_height / 2);
                 ctrler()->click(next_node_center);
+                TrajectoryLogger::instance().log_generic(ctrler()->get_image(), "routing", json::object{{"node_index",static_cast<int>(next_node)}}.to_string(), "route node=" + std::to_string(next_node), false, "", json::object{{"theme",m_config->get_theme()},{"floor",m_config->status().floor}}.to_string());
                 sleep(200);
 
                 Task.set_task_base(
@@ -223,6 +226,7 @@ bool asst::RoguelikeRoutingTaskPlugin::_run()
                 const int next_node_y = m_map.get_node_y(next_node);
                 Point next_node_center = Point(next_node_x + m_node_width / 2, next_node_y + m_node_height / 2);
                 ctrler()->click(next_node_center);
+                TrajectoryLogger::instance().log_generic(ctrler()->get_image(), "routing", json::object{{"node_index",static_cast<int>(next_node)}}.to_string(), "route node=" + std::to_string(next_node), false, "", json::object{{"theme",m_config->get_theme()},{"floor",m_config->status().floor}}.to_string());
                 sleep(200);
 
                 Task.set_task_base(

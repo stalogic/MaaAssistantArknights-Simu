@@ -109,6 +109,24 @@ public class SimulatorViewModel : Screen
         set => SetAndNotify(ref _aiRouting, value);
     }
 
+    // --- Trajectory Logging ---
+
+    private bool _trajectoryLogging;
+
+    public bool TrajectoryLogging
+    {
+        get => _trajectoryLogging;
+        set => SetAndNotify(ref _trajectoryLogging, value);
+    }
+
+    private string _trajectoryDir = @"E:\MAA-Simu-Debug\trajectory";
+
+    public string TrajectoryDir
+    {
+        get => _trajectoryDir;
+        set => SetAndNotify(ref _trajectoryDir, value);
+    }
+
     // --- Actions ---
 
     public void CheckAiConnection()
@@ -192,6 +210,8 @@ public class SimulatorViewModel : Screen
             taskParams["ai_shopping"] = _aiShopping;
             taskParams["ai_encounter"] = _aiEncounter;
             taskParams["ai_routing"] = _aiRouting;
+            taskParams["trajectory_logging"] = _trajectoryLogging;
+            taskParams["trajectory_dir"] = _trajectoryDir;
 
             bool ok = proxy.AsstAppendTaskWithEncoding(
                 TaskType.Roguelike, AsstTaskType.Roguelike, taskParams);
