@@ -114,7 +114,8 @@ std::string TrajectoryLogger::build_record(
     const std::string& action_text,
     bool ai_used,
     const std::string& ai_chosen,
-    const std::string& extra_params_json)
+    const std::string& extra_params_json,
+    bool done)
 {
     auto action = json::parse(action_json);
     auto extra = json::parse(extra_params_json);
@@ -134,7 +135,7 @@ std::string TrajectoryLogger::build_record(
         { "action", std::move(action_obj) },
         { "observation", img_rel },
         { "reward", 0 },
-        { "done", false },
+        { "done", done },
         { "extra_params", extra.value_or(json::object{}) },
     };
 
@@ -184,7 +185,8 @@ void TrajectoryLogger::log_generic(
     const std::string& action_text,
     bool ai_used,
     const std::string& ai_chosen,
-    const std::string& extra_params_json)
+    const std::string& extra_params_json,
+    bool done)
 {
     std::lock_guard<std::mutex> lock(m_mutex);
     if (!m_jsonl.is_open()) return;
@@ -193,7 +195,7 @@ void TrajectoryLogger::log_generic(
     std::string img_rel = save_screenshot(screenshot, task_type, m_step);
 
     m_jsonl << build_record(task_type, img_rel, action_json, action_text,
-                            ai_used, ai_chosen, extra_params_json) << '\n';
+                            ai_used, ai_chosen, extra_params_json, done) << '\n';
     m_jsonl.flush();
 }
 }

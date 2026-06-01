@@ -40,7 +40,8 @@ public:
         const std::string& action_text,
         bool ai_used,
         const std::string& ai_chosen,
-        const std::string& extra_params_json);
+        const std::string& extra_params_json,
+        bool done = false);
 
 private:
     TrajectoryLogger() = default;
@@ -54,7 +55,8 @@ private:
         const std::string& action_text,
         bool ai_used,
         const std::string& ai_chosen,
-        const std::string& extra_params_json);
+        const std::string& extra_params_json,
+        bool done = false);
 
     std::string m_episode_id;
     std::string m_session_dir;

@@ -195,18 +195,36 @@ ProcessTask::NodeStatus ProcessTask::run_action(const HitDetail& hits) const
 {
     const auto& task = hits.task_ptr;
     // Low-level action logging for trajectory
-    if (task->action != ProcessTaskAction::DoNothing && task->action != ProcessTaskAction::Stop) {
+    {
         auto& logger = asst::TrajectoryLogger::instance();
         if (logger.is_enabled()) {
-            std::string action_type = enum_to_string(task->action);
-            logger.log_generic(
-                ctrler()->get_image(), "action",
-                json::object{
-                    { "type", action_type },
-                    { "task", task->name },
-                }.to_string(),
-                action_type + " " + task->name,
-                false, "", json::object{}.to_string());
+            if (task->action == ProcessTaskAction::Stop) {
+                logger.log_generic(
+                    ctrler()->get_image(), "stop",
+                    json::object{{"type","Stop"},{"task",task->name}}.to_string(),
+                    "Stop " + task->name,
+                    false, "", json::object{}.to_string(), true);
+            }
+            else if (task->action == ProcessTaskAction::DoNothing) {
+                // Dedup consecutive identical waits
+                static std::string s_last_wait_task;
+                if (task->name != s_last_wait_task) {
+                    s_last_wait_task = task->name;
+                    logger.log_generic(
+                        ctrler()->get_image(), "wait",
+                        json::object{{"type","DoNothing"},{"task",task->name}}.to_string(),
+                        "wait " + task->name,
+                        false, "", json::object{}.to_string());
+                }
+            }
+            else {
+                std::string action_type = enum_to_string(task->action);
+                logger.log_generic(
+                    ctrler()->get_image(), "action",
+                    json::object{{"type",action_type},{"task",task->name}}.to_string(),
+                    action_type + " " + task->name,
+                    false, "", json::object{}.to_string());
+            }
         }
     }
     switch (task->action) {
