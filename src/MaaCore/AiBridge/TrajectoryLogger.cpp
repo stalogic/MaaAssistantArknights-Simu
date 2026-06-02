@@ -68,6 +68,19 @@ void TrajectoryLogger::start_session(const std::string& base_dir, const std::str
     m_session_dir = session_dir;
     m_images_dir = images_dir;
     m_step = 0;
+    m_floor = 0; m_hp = 0; m_hope = 0;
+
+    // Write metadata.json
+    json::value meta = json::object{
+        { "episode_id", m_episode_id },
+        { "theme", theme },
+        { "total_steps", 0 },
+    };
+    std::ofstream meta_file(m_session_dir + "/metadata.json");
+    if (meta_file.is_open()) {
+        meta_file << meta.to_string() << '\n';
+        meta_file.close();
+    }
 
     m_jsonl.open(m_session_dir + "/trajectory.jsonl", std::ios::out | std::ios::trunc);
     if (!m_jsonl.is_open()) {
@@ -85,15 +98,77 @@ void TrajectoryLogger::end_session()
         m_jsonl.close();
         Log.info("TrajectoryLogger: session ended,", m_step, "entries");
     }
+
+    // Update metadata with final step count
+    if (!m_session_dir.empty()) {
+        json::value meta = json::object{
+            { "episode_id", m_episode_id },
+            { "theme", m_theme },
+            { "mode", m_mode },
+            { "difficulty", m_difficulty },
+            { "squad", m_squad },
+            { "total_steps", m_step },
+        };
+        std::ofstream meta_file(m_session_dir + "/metadata.json");
+        if (meta_file.is_open()) {
+            meta_file << meta.to_string() << '\n';
+            meta_file.close();
+        }
+    }
+
     m_episode_id.clear();
     m_session_dir.clear();
     m_images_dir.clear();
     m_step = 0;
 }
 
+void TrajectoryLogger::set_roguelike_state(int floor, int hope, int hp,
+    const std::string& theme, int mode, int difficulty,
+    const std::string& squad, int formation_limit)
+{
+    m_floor = floor;
+    m_hope = hope;
+    m_hp = hp;
+    m_theme = theme;
+    m_mode = mode;
+    m_difficulty = difficulty;
+    m_squad = squad;
+    m_formation_limit = formation_limit;
+}
+
+int TrajectoryLogger::compute_reward(int floor, int hp, const std::string& task_type)
+{
+    int reward = 0;
+    if (floor > 0 && floor > m_floor) reward += 5 * (floor - m_floor);
+    if (m_hp > 0 && hp < m_hp) reward -= 1 * (m_hp - hp);
+    if (m_hp > 0 && hp > m_hp) reward += 0; // small bump for healing
+    if (task_type == "recruit") reward += 0;
+    if (task_type == "battle") reward += 0;
+    if (task_type == "stop") reward += 0;
+
+    m_floor = floor;
+    m_hp = hp;
+    return reward;
+}
+
+std::string TrajectoryLogger::state_to_json() const
+{
+    return json::object{
+        { "theme", m_theme },
+        { "floor", m_floor },
+        { "hope", m_hope },
+        { "hp", m_hp },
+        { "difficulty", m_difficulty },
+        { "mode", m_mode },
+        { "squad", m_squad },
+        { "formation_limit", m_formation_limit },
+    }.to_string();
+}
+
 std::string TrajectoryLogger::save_screenshot(const cv::Mat& img, const std::string& prefix, int seq)
 {
-    if (m_images_dir.empty() || img.empty()) return {};
+    if (m_images_dir.empty()) return {};
+    if (img.empty() || img.rows == 0 || img.cols == 0) return {};
 
     std::ostringstream filename;
     filename << prefix << "_" << std::setfill('0') << std::setw(4) << seq << ".png";
@@ -114,16 +189,12 @@ std::string TrajectoryLogger::build_record(
     const std::string& action_text,
     bool ai_used,
     const std::string& ai_chosen,
-    const std::string& extra_params_json,
-    bool done)
+    bool done,
+    int reward)
 {
     auto action = json::parse(action_json);
-    auto extra = json::parse(extra_params_json);
-
     auto action_obj = action.value_or(json::object{});
-    if (!action_text.empty()) {
-        action_obj["text"] = action_text;
-    }
+    if (!action_text.empty()) action_obj["text"] = action_text;
 
     json::value record = json::object{
         { "episode_id", m_episode_id },
@@ -134,9 +205,9 @@ std::string TrajectoryLogger::build_record(
         { "ai_chosen", ai_chosen },
         { "action", std::move(action_obj) },
         { "observation", img_rel },
-        { "reward", 0 },
+        { "reward", reward },
         { "done", done },
-        { "extra_params", extra.value_or(json::object{}) },
+        { "extra_params", json::parse(state_to_json()).value_or(json::object{}) },
     };
 
     return record.to_string();
@@ -148,8 +219,7 @@ void TrajectoryLogger::log_recruit(
     const std::string& chosen_operator,
     const std::string& action_text,
     bool ai_used,
-    const std::string& ai_chosen,
-    const std::string& extra_params_json)
+    const std::string& ai_chosen)
 {
     std::lock_guard<std::mutex> lock(m_mutex);
     if (!m_jsonl.is_open()) return;
@@ -173,8 +243,10 @@ void TrajectoryLogger::log_recruit(
         { "candidates", std::move(candidates_arr) },
     }.to_string();
 
+    int reward = compute_reward(m_floor, m_hp, "recruit");
+
     m_jsonl << build_record("recruit", img_rel, action_json, action_text,
-                            ai_used, ai_chosen, extra_params_json) << '\n';
+                            ai_used, ai_chosen, false, reward) << '\n';
     m_jsonl.flush();
 }
 
@@ -185,8 +257,8 @@ void TrajectoryLogger::log_generic(
     const std::string& action_text,
     bool ai_used,
     const std::string& ai_chosen,
-    const std::string& extra_params_json,
-    bool done)
+    bool done,
+    int reward)
 {
     std::lock_guard<std::mutex> lock(m_mutex);
     if (!m_jsonl.is_open()) return;
@@ -194,8 +266,10 @@ void TrajectoryLogger::log_generic(
     m_step++;
     std::string img_rel = save_screenshot(screenshot, task_type, m_step);
 
+    if (reward == 0) reward = compute_reward(m_floor, m_hp, task_type);
+
     m_jsonl << build_record(task_type, img_rel, action_json, action_text,
-                            ai_used, ai_chosen, extra_params_json, done) << '\n';
+                            ai_used, ai_chosen, done, reward) << '\n';
     m_jsonl.flush();
 }
 }

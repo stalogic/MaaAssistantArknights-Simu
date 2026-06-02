@@ -228,8 +228,7 @@ std::optional<std::string> asst::RoguelikeStageEncounterTaskPlugin::handle_singl
                 ctrler()->get_image(), "encounter",
                 json::object{ { "event", event.name }, { "choice", static_cast<int>(choose_option) }, { "option_count", static_cast<int>(event.option_num) } }.to_string(),
                 "encounter " + event.name + " choice=" + std::to_string(choose_option),
-                false, "",
-                json::object{ { "theme", m_config->get_theme() }, { "floor", m_config->status().floor } }.to_string());
+                false, "");
         }
         sleep(300);
     }

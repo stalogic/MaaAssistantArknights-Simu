@@ -1,5 +1,6 @@
 #include "RoguelikeSettlementTaskPlugin.h"
 
+#include "AiBridge/TrajectoryLogger.h"
 #include "Config/GeneralConfig.h"
 #include "Config/TaskData.h"
 #include "Controller/Controller.h"
@@ -57,6 +58,17 @@ bool asst::RoguelikeSettlementTaskPlugin::_run()
     }
     get_settlement_info(json_msg, image);
     callback(AsstMsg::SubTaskExtraInfo, json_msg);
+
+    // Mark trajectory episode as done
+    auto& logger = TrajectoryLogger::instance();
+    if (logger.is_enabled()) {
+        logger.log_generic(image, "settlement",
+            json::object{ {"game_pass", m_game_pass} }.to_string(),
+            m_game_pass ? "GamePass" : "MissionFailed",
+            false, "", true, m_game_pass ? 10 : -5);
+        logger.end_session();
+    }
+
     return true;
 }
 

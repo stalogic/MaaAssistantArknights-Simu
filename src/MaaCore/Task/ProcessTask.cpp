@@ -203,7 +203,7 @@ ProcessTask::NodeStatus ProcessTask::run_action(const HitDetail& hits) const
                     ctrler()->get_image(), "stop",
                     json::object{{"type","Stop"},{"task",task->name}}.to_string(),
                     "Stop " + task->name,
-                    false, "", json::object{}.to_string(), true);
+                    false, "", true);
             }
             else if (task->action == ProcessTaskAction::DoNothing) {
                 // Dedup consecutive identical waits
@@ -214,16 +214,29 @@ ProcessTask::NodeStatus ProcessTask::run_action(const HitDetail& hits) const
                         ctrler()->get_image(), "wait",
                         json::object{{"type","DoNothing"},{"task",task->name}}.to_string(),
                         "wait " + task->name,
-                        false, "", json::object{}.to_string());
+                        false, "");
                 }
             }
             else {
                 std::string action_type = enum_to_string(task->action);
+                json::object act{{"type",action_type},{"task",task->name}};
+                // Record click coordinates
+                if (task->action == ProcessTaskAction::ClickSelf) {
+                    act["x"] = hits.rect.x; act["y"] = hits.rect.y;
+                    act["w"] = hits.rect.width; act["h"] = hits.rect.height;
+                }
+                else if (task->action == ProcessTaskAction::ClickRect) {
+                    act["x"] = task->specific_rect.x; act["y"] = task->specific_rect.y;
+                    act["w"] = task->specific_rect.width; act["h"] = task->specific_rect.height;
+                }
+                else if (task->action == ProcessTaskAction::Swipe) {
+                    act["x1"] = task->specific_rect.x; act["y1"] = task->specific_rect.y;
+                    act["x2"] = task->rect_move.x; act["y2"] = task->rect_move.y;
+                }
                 logger.log_generic(
-                    ctrler()->get_image(), "action",
-                    json::object{{"type",action_type},{"task",task->name}}.to_string(),
+                    ctrler()->get_image(), "action", act.to_string(),
                     action_type + " " + task->name,
-                    false, "", json::object{}.to_string());
+                    false, "");
             }
         }
     }

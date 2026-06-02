@@ -214,8 +214,7 @@ bool asst::RoguelikeShoppingTaskPlugin::buy_once()
             ctrler()->get_image(), "shopping",
             json::object{ { "goods", goods.name } }.to_string(),
             "buy " + goods.name,
-            false, "",
-            json::object{ { "theme", m_config->get_theme() }, { "floor", m_config->status().floor } }.to_string());
+            false, "");
         // bought = true;
         if (m_config->get_theme() == RoguelikeTheme::Sami) {
             auto iter = std::find(all_foldartal.begin(), all_foldartal.end(), goods.name);

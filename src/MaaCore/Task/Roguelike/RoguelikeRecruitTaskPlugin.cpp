@@ -489,57 +489,46 @@ bool asst::RoguelikeRecruitTaskPlugin::_run()
         ai_candidates.push_back({ info.name, 0, 0, info.priority, info.is_alternate });
     }
 
-    // === 构建 extra_params ===
-    json::value extra = json::object{
-        { "theme", m_config->get_theme() },
-        { "mode", static_cast<int>(m_config->get_mode()) },
-        { "floor", m_config->status().floor },
-        { "hope", m_config->status().hope },
-        { "hp", m_config->status().hp },
-        { "difficulty", m_config->get_difficulty() },
-        { "squad", m_config->get_squad() },
-        { "formation_limit", m_config->status().formation_upper_limit },
-    };
-    std::string extra_str = extra.to_string();
+    // Set state for trajectory auto-fill
+    TrajectoryLogger::instance().set_roguelike_state(
+        m_config->status().floor, m_config->status().hope, m_config->status().hp,
+        m_config->get_theme(), static_cast<int>(m_config->get_mode()),
+        m_config->get_difficulty(), m_config->get_squad(),
+        m_config->status().formation_upper_limit);
 
-    // === AI 决策 hook ===
+    // === AI 决策（含影子日志） ===
     AiBridge& ai = AiBridge::instance();
-    if (m_config->get_ai_recruit() && ai.is_enabled()) {
-        cv::Mat screenshot = ctrler()->get_image();
-        std::vector<RecruitCandidate> candidates = ai_candidates;
+    bool ai_enabled = m_config->get_ai_recruit() && ai.is_enabled();
+    cv::Mat screenshot = ctrler()->get_image();
+    std::string ai_suggestion;
 
-        std::string chosen = ai.query_recruit_decision(
-            screenshot, candidates,
+    // Query AI for comparison data if trajectory logging or AI is enabled
+    if (ai.is_enabled() && (ai_enabled || TrajectoryLogger::instance().is_enabled())) {
+        ai_suggestion = ai.query_recruit_decision(
+            screenshot, ai_candidates,
             m_config->get_theme(),
             m_config->status().floor,
             m_config->status().hope,
             m_config->status().hp);
+    }
 
-        if (!chosen.empty()) {
-            for (const auto& info : recruit_list) {
-                if (info.name == chosen) {
-                    Log.info(__FUNCTION__, "| AI chose:", chosen);
-                    TrajectoryLogger::instance().log_recruit(
-                        screenshot, ai_candidates, chosen,
-                        "recruit " + chosen,
-                        true, chosen, extra_str);
-                    bool is_rtl_ai = (info.page_index * 2) >= i;
-                    if (!is_rtl_ai && i != 0) {
-                        swipe_to_the_left_of_operlist(i + 1);
-                    }
-                    return recruit_appointed_char(chosen, is_rtl_ai);
-                }
+    // Try to use AI suggestion if AI is enabled
+    if (ai_enabled && !ai_suggestion.empty()) {
+        for (const auto& info : recruit_list) {
+            if (info.name == ai_suggestion) {
+                Log.info(__FUNCTION__, "| AI chose:", ai_suggestion);
+                TrajectoryLogger::instance().log_recruit(
+                    screenshot, ai_candidates, ai_suggestion,
+                    "recruit " + ai_suggestion, true, ai_suggestion);
+                bool is_rtl_ai = (info.page_index * 2) >= i;
+                if (!is_rtl_ai && i != 0) swipe_to_the_left_of_operlist(i + 1);
+                return recruit_appointed_char(ai_suggestion, is_rtl_ai);
             }
-            Log.warn(__FUNCTION__, "| AI chose unknown oper:", chosen);
-            TrajectoryLogger::instance().log_recruit(
-                screenshot, ai_candidates, "",
-                "recruit (unknown: " + chosen + ")",
-                true, chosen, extra_str);
         }
+        Log.warn(__FUNCTION__, "| AI chose unknown oper:", ai_suggestion);
     }
     // === 原有优先级逻辑 ===
 
-    // 选择优先级最高的干员
     auto selected_oper =
         std::ranges::max_element(recruit_list, std::less {}, std::mem_fn(&RoguelikeRecruitInfo::priority));
     if (selected_oper == recruit_list.cend()) {
@@ -548,12 +537,10 @@ bool asst::RoguelikeRecruitTaskPlugin::_run()
     }
 
     std::string char_name = selected_oper->name;
-
-    // 轨迹记录：默认规则决策
     TrajectoryLogger::instance().log_recruit(
         ctrler()->get_image(), ai_candidates, char_name,
         "recruit " + char_name,
-        false, "", extra_str);
+        ai_enabled && !ai_suggestion.empty(), ai_suggestion);
 
     Log.trace(
         __FUNCTION__,
