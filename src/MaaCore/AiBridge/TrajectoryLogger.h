@@ -30,6 +30,10 @@ public:
                              const std::string& theme, int mode, int difficulty,
                              const std::string& squad, int formation_limit);
 
+    // Set battle-specific context (DP, kills, stage name, deployment slots)
+    void set_battle_context(int dp, int kills, int deployed_count, int remaining_slots,
+                            int squad_size, const std::string& stage);
+
     void log_recruit(
         const cv::Mat& screenshot,
         const std::vector<RecruitCandidate>& candidates,
@@ -77,5 +81,13 @@ private:
     int m_difficulty = 0;
     std::string m_squad;
     int m_formation_limit = 6;
+
+    // Battle context
+    int m_dp = 0;
+    int m_kills = 0;
+    int m_deployed_count = 0;
+    int m_remaining_slots = 0;
+    int m_squad_size = 0;
+    std::string m_stage;
 };
 }

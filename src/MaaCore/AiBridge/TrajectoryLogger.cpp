@@ -126,14 +126,18 @@ void TrajectoryLogger::set_roguelike_state(int floor, int hope, int hp,
     const std::string& theme, int mode, int difficulty,
     const std::string& squad, int formation_limit)
 {
-    m_floor = floor;
-    m_hope = hope;
-    m_hp = hp;
-    m_theme = theme;
-    m_mode = mode;
-    m_difficulty = difficulty;
-    m_squad = squad;
+    m_floor = floor; m_hope = hope; m_hp = hp;
+    m_theme = theme; m_mode = mode;
+    m_difficulty = difficulty; m_squad = squad;
     m_formation_limit = formation_limit;
+}
+
+void TrajectoryLogger::set_battle_context(int dp, int kills, int deployed_count,
+    int remaining_slots, int squad_size, const std::string& stage)
+{
+    m_dp = dp; m_kills = kills;
+    m_deployed_count = deployed_count; m_remaining_slots = remaining_slots;
+    m_squad_size = squad_size; m_stage = stage;
 }
 
 int TrajectoryLogger::compute_reward(int floor, int hp, const std::string& task_type)
@@ -153,7 +157,7 @@ int TrajectoryLogger::compute_reward(int floor, int hp, const std::string& task_
 
 std::string TrajectoryLogger::state_to_json() const
 {
-    return json::object{
+    json::object obj{
         { "theme", m_theme },
         { "floor", m_floor },
         { "hope", m_hope },
@@ -162,7 +166,17 @@ std::string TrajectoryLogger::state_to_json() const
         { "mode", m_mode },
         { "squad", m_squad },
         { "formation_limit", m_formation_limit },
-    }.to_string();
+    };
+    // Add battle context when available
+    if (!m_stage.empty()) {
+        obj["stage"] = m_stage;
+        obj["dp"] = m_dp;
+        obj["kills"] = m_kills;
+        obj["deployed_count"] = m_deployed_count;
+        obj["remaining_slots"] = m_remaining_slots;
+        obj["squad_size"] = m_squad_size;
+    }
+    return json::value(obj).to_string();
 }
 
 std::string TrajectoryLogger::save_screenshot(const cv::Mat& img, const std::string& prefix, int seq)

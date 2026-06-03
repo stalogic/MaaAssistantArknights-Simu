@@ -447,6 +447,11 @@ bool asst::RoguelikeBattleTaskPlugin::do_best_deploy()
                 m_config->get_theme(), static_cast<int>(m_config->get_mode()),
                 m_config->get_difficulty(), m_config->get_squad(),
                 m_config->status().formation_upper_limit);
+            int deployed_count = static_cast<int>(m_used_tiles.size());
+            TrajectoryLogger::instance().set_battle_context(
+                m_cost, m_kills, deployed_count,
+                m_config->status().formation_upper_limit - deployed_count,
+                static_cast<int>(m_config->status().opers.size()), m_stage_name);
             TrajectoryLogger::instance().log_generic(
                 ctrler()->get_image(), "battle",
                 json::object{

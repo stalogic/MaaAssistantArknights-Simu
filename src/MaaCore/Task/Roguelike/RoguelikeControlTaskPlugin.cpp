@@ -1,5 +1,6 @@
 #include "RoguelikeControlTaskPlugin.h"
 
+#include "AiBridge/TrajectoryLogger.h"
 #include "Task/ProcessTask.h"
 #include "Utils/Logger.hpp"
 
@@ -18,6 +19,13 @@ bool asst::RoguelikeControlTaskPlugin::verify(AsstMsg msg, const json::value& de
     if (msg != AsstMsg::SubTaskStart || details.get("subtask", std::string()) != "ProcessTask") {
         return false;
     }
+
+    // Update trajectory state on every roguelike event
+    TrajectoryLogger::instance().set_roguelike_state(
+        m_config->status().floor, m_config->status().hope, m_config->status().hp,
+        m_config->get_theme(), static_cast<int>(m_config->get_mode()),
+        m_config->get_difficulty(), m_config->get_squad(),
+        m_config->status().formation_upper_limit);
 
     const std::string roguelike_name = m_config->get_theme() + "@";
     const std::string& task = details.get("details", "task", "");
